@@ -11,10 +11,15 @@ public interface ModalidadeRepository  extends JpaRepository<Modalidade, Long> {
 	List<Modalidade> consultaTodos();
 	
 	Optional<Modalidade> findByModalidade(String modalidade);
+	List<Modalidade> findAllByModalidadeIgnoreCaseContaining(String modalidade);
 	
 	Optional<Modalidade> findByDiaTreino(String diaTreino);
+	List<Modalidade> findAllByDiaTreinoIgnoreCaseContaining(String diaTreino);
 	
 	Optional<Modalidade> findByHorarioTreino(String horarioTreino);
+	List<Modalidade> findAllByHorarioTreinoIgnoreCaseContaining(String horarioTreino);
 	
 	Optional<Modalidade> findBySexo(String sexo);
+	List<Modalidade> findAllBySexoIgnoreCaseContaining(String sexo);
 }
+                                                                                                                                                                                                          
