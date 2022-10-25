@@ -19,7 +19,7 @@ import com.fatec.grupo4.model.Modalidade;
 import com.fatec.grupo4.services.MantemModalidade;
 
 @Controller
-@RequestMapping(path = "/scv")
+@RequestMapping(path = "scv")
 public class GUIModalidadeController {
 	
 	Logger logger = LogManager.getLogger(GUIModalidadeController.class);
@@ -86,7 +86,7 @@ public class GUIModalidadeController {
 		return mv;
 	}
 
-	@PostMapping("/modalidades/id/{id}")
+	@PostMapping("/modalidade/id/{id}")
 	public ModelAndView atualizaModalidade(@PathVariable("id") Long id, @Valid Modalidade modalidade, BindingResult result) {
 		ModelAndView modelAndView = new ModelAndView("consultarModalidade");
 		logger.info(">>>>>> servico para atualizacao de dados chamado para o id => " + id);
