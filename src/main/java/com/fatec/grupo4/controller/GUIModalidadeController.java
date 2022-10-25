@@ -19,7 +19,7 @@ import com.fatec.grupo4.model.Modalidade;
 import com.fatec.grupo4.services.MantemModalidade;
 
 @Controller
-@RequestMapping(path = "/grupox")
+@RequestMapping(path = "scv")
 public class GUIModalidadeController {
 	
 	Logger logger = LogManager.getLogger(GUIModalidadeController.class);
@@ -27,7 +27,7 @@ public class GUIModalidadeController {
 	@Autowired
 	MantemModalidade servico;
 
-	@GetMapping("/modalidade")
+	@GetMapping("/modalidades")
 	public ModelAndView retornaFormDeConsultaTodosModalidades() {
 		ModelAndView mv = new ModelAndView("consultarModalidade");
 		mv.addObject("modalidade", servico.consultaTodos());
@@ -66,7 +66,7 @@ public class GUIModalidadeController {
 		return modelAndView;
 	}
 
-	@PostMapping("/modalidade")
+	@PostMapping("/modalidades")
 	public ModelAndView save(@Valid Modalidade modalidade, BindingResult result) {
 		ModelAndView mv = new ModelAndView("consultarModalidade");
 		if (result.hasErrors()) {

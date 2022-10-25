@@ -18,7 +18,7 @@ public class MantemModalidadeI implements MantemModalidade {
 	ModalidadeRepository repository;
 
 	@Override
-	public List<Modalidade> consultaTodos() {
+	public List<Modalidade> findByAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -69,6 +69,12 @@ public class MantemModalidadeI implements MantemModalidade {
 	public Optional<Modalidade> atualiza(Modalidade Modalidade) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
+	}
+
+	@Override
+	public List<Modalidade> consultaTodos() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

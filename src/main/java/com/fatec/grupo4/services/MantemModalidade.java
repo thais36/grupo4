@@ -3,8 +3,11 @@ package com.fatec.grupo4.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.fatec.grupo4.model.Modalidade;
 
+@Service
 
 public interface MantemModalidade {
 	
