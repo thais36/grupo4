@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ModalidadeRepository  extends JpaRepository<Modalidade, Long> {
-	List<Modalidade> consultaTodos();
+	List<Modalidade> findAll();
 	
 	Optional<Modalidade> findByModalidade(String modalidade);
 	List<Modalidade> findAllByModalidadeIgnoreCaseContaining(String modalidade);
