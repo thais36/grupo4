@@ -20,7 +20,9 @@ import com.fatec.grupo4.services.MantemModalidade;
 
 @SuppressWarnings("unused")
 @Controller
+
 @RequestMapping(path = "grupox")
+
 public class GUIModalidadeController {
 	
 	Logger logger = LogManager.getLogger(GUIModalidadeController.class);
