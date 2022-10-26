@@ -18,8 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fatec.grupo4.model.Modalidade;
 import com.fatec.grupo4.services.MantemModalidade;
 
+@SuppressWarnings("unused")
 @Controller
-@RequestMapping(path = "scv")
+@RequestMapping(path = "grupox")
 public class GUIModalidadeController {
 	
 	Logger logger = LogManager.getLogger(GUIModalidadeController.class);
@@ -30,59 +31,59 @@ public class GUIModalidadeController {
 	@GetMapping("/modalidades")
 	public ModelAndView retornaFormDeConsultaTodosModalidades() {
 		ModelAndView mv = new ModelAndView("consultarModalidade");
-		mv.addObject("modalidade", servico.consultaTodos());
+		mv.addObject("modalidades", servico.consultaTodos());
 		return mv;
 	}
 
 	@GetMapping("/modalidade")
 	public ModelAndView retornaFormDeCadastroDe(Modalidade modalidade) {
 		ModelAndView mv = new ModelAndView("cadastrarModalidade");
-		List<String> lista = Arrays.asList("Individual", "Coletiva");
-		mv.addObject("lista", lista);
-		mv.addObject("modalidade", modalidade);
+		//List<String> lista = Arrays.asList("Individual", "Coletiva");
+		//mv.addObject("lista", lista);
+		//mv.addObject("modalidade", modalidade);
 		return mv;
 	}
 
-	@GetMapping("/modalidades/{modalidade}") // diz ao metodo que ira responder a uma requisicao do tipo get
-	public ModelAndView retornaFormParaEditarModalidade(@PathVariable("modalidade") String modalidade) {
+	@GetMapping("/modalidades/{id}") // diz ao metodo que ira responder a uma requisicao do tipo get
+	public ModelAndView retornaFormParaEditarModalidade(@PathVariable("id") Long id) {
 		ModelAndView mv = new ModelAndView("atualizarModalidade");
-		List<String> lista = Arrays.asList("Individual", "Coletiva");
-		mv.addObject("lista", lista);
-//		Optional<Modalidade> modalidade = servico.findByModalidade(modalidade);
-//		if (modalidade.isPresent()) {
-//			mv.addObject("modalidade", modalidade.get()); // retorna um objeto do tipo cliente
-//		} else {
-//			return new ModelAndView("paginaMenu");
-//		}
+//		List<String> lista = Arrays.asList("Individual", "Coletiva");
+//		mv.addObject("lista", lista);
+		Optional<Modalidade> modalidade = servico.findById(id);
+		if (modalidade.isPresent()) {
+			mv.addObject("modalidade", modalidade.get()); // retorna um objeto do tipo cliente
+		} else {
+			return new ModelAndView("paginaMenu");
+		}
 		return mv; // addObject adiciona objetos para view
 	}
 
-	@GetMapping("/modalidades/id/{id}")
+	@GetMapping("/modalidades/delete/{id}")
 	public ModelAndView excluirNoFormDeConsultaModalidade(@PathVariable("id") Long id) {
 		servico.delete(id);
 		logger.info(">>>>>> 1. servico de exclusao chamado para o id => " + id);
-		ModelAndView modelAndView = new ModelAndView("consultarModalidade");
-		modelAndView.addObject("modalidade", servico.consultaTodos());
+		ModelAndView modelAndView = new ModelAndView("redirect:/grupox/modalidades");
 		return modelAndView;
 	}
 
 	@PostMapping("/modalidades")
 	public ModelAndView save(@Valid Modalidade modalidade, BindingResult result) {
 		ModelAndView mv = new ModelAndView("consultarModalidade");
-		if (result.hasErrors()) {
-			List<String> lista = Arrays.asList("Individual", "Coletiva");
-			mv.addObject("lista", lista);
-			mv.setViewName("cadastrarModalidade");
-		} else {
-			if (servico.save(modalidade).isPresent()) {
+		//if (result.hasErrors()) {
+		//	List<String> lista = Arrays.asList("Individual", "Coletiva");
+		//	mv.addObject("lista", lista);
+		//	mv.setViewName("cadastrarModalidade");
+		//} else {
+//			if (servico.save(modalidade).isPresent()) {
+				servico.save(modalidade);
 				logger.info(">>>>>> controller chamou cadastrar e consultar todos");
-				mv.addObject("modalidade", servico.consultaTodos());
-			} else {
-				logger.info(">>>>>> controller cadastrar com dados invalidos");
-				mv.setViewName("cadastrarModalidade");
-				mv.addObject("message", "Dados invalidos");
-			}
-		}
+				mv.addObject("modalidades", servico.consultaTodos());
+//			} else {
+//				logger.info(">>>>>> controller cadastrar com dados invalidos");
+//				mv.setViewName("cadastrarModalidade");
+//				mv.addObject("message", "Dados invalidos");
+//			}
+		//}
 		return mv;
 	}
 

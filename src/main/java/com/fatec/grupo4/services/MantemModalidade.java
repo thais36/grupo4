@@ -8,14 +8,13 @@ import org.springframework.stereotype.Service;
 import com.fatec.grupo4.model.Modalidade;
 
 @Service
-
 public interface MantemModalidade {
 	
 	List<Modalidade> consultaTodos();
 
-	Optional<Modalidade> consultaPorId(Long id);
+	Optional<Modalidade> findById(Long id);
 	
-	Optional<Modalidade> findByModalidade(String modalidade);
+	Optional<Modalidade> findByNome(String nome);
 	
 	Optional<Modalidade> findByDiaTreino(String diaTreino);
 	
@@ -23,10 +22,10 @@ public interface MantemModalidade {
 	
 	Optional<Modalidade> findBySexo(String sexo);
 
-	Optional<Modalidade> save(Modalidade modalidade);
+	void save(Modalidade modalidade);
 
 	void delete(Long id);
 
-	Optional<Modalidade> atualiza(Modalidade Modalidade);
+	void atualiza(Modalidade Modalidade);
 
 }

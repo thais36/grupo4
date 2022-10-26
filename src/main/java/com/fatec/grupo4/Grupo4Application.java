@@ -10,14 +10,14 @@ import com.fatec.grupo4.model.UserAppRepository;
 import com.fatec.grupo4.model.UsuarioApp;
 
 @SpringBootApplication
-public class GrupoxApplication {
+public class Grupo4Application {
 	@Autowired
 	PasswordEncoder passwordEncoder;
 	@Autowired
 	UserAppRepository repository;
 
 	public static void main(String[] args) {
-		SpringApplication.run(GrupoxApplication.class, args);
+		SpringApplication.run(Grupo4Application.class, args);
 		System.out.println(new BCryptPasswordEncoder().encode("123"));
 	}
 	@Autowired

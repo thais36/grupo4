@@ -13,8 +13,8 @@ public class Modalidade {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotBlank(message = "Modalidade é requerido")
-	private String modalidade;
+	@NotBlank(message = "Nome da modalidade é requerido")
+	private String nome;
 	@NotBlank(message = "O sexo é requerido.")
 	private String sexo;
 	@NotBlank(message = "O dia da semana é requerido.")
@@ -26,13 +26,20 @@ public class Modalidade {
 	public Modalidade() {
 	
 	}
-	
-	public Modalidade(String modalidade, String sexo, String diaTreino, String horarioTreino) {
-		this.modalidade = modalidade;
+
+	public Modalidade(Long id, @NotBlank(message = "Nome da modalidade é requerido") String nome,
+			@NotBlank(message = "O sexo é requerido.") String sexo,
+			@NotBlank(message = "O dia da semana é requerido.") String diaTreino,
+			@NotBlank(message = "O Horário é requerido.") String horarioTreino) {
+		super();
+		this.id = id;
+		this.nome = nome;
 		this.sexo = sexo;
 		this.diaTreino = diaTreino;
 		this.horarioTreino = horarioTreino;
 	}
+
+
 
 	// GETTERS E SETTERS
 	public Long getId() {
@@ -43,12 +50,12 @@ public class Modalidade {
 		this.id = id;
 	}
 
-	public String getModalidade() {
-		return modalidade;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setModalidade(String modalidade) {
-		this.modalidade = modalidade;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getSexo() {
@@ -74,6 +81,8 @@ public class Modalidade {
 	public void setHorarioTreino(String horarioTreino) {
 		this.horarioTreino = horarioTreino;
 	}
+
+	
 
 	
 	// CASO SE QUEIRA MEXER COM DATAS (Tipo Date)

@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fatec.grupo4.model.Produto;
 import com.fatec.grupo4.services.MantemProduto;
 
+@SuppressWarnings("unused")
 @Controller
 @RequestMapping(path = "/produto")
 public class GUIProdutoController {
@@ -25,6 +26,7 @@ public class GUIProdutoController {
 	@Autowired
 	MantemProduto servico;
 
+	// /produto/clientes
 	@GetMapping("/clientes")
 	public ModelAndView retornaFormDeConsultaTodosProduto() {
 		ModelAndView mv = new ModelAndView("consultarProduto");
@@ -32,6 +34,7 @@ public class GUIProdutoController {
 		return mv;
 	}
 
+	// /produto/produto
 	@GetMapping("/produto")
 	public ModelAndView retornaFormDeCadastroDe(Produto produto) {
 		ModelAndView mv = new ModelAndView("consultarProduto");

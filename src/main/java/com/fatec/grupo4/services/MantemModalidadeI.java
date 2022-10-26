@@ -18,63 +18,53 @@ public class MantemModalidadeI implements MantemModalidade {
 	ModalidadeRepository repository;
 
 	@Override
-	public List<Modalidade> findByAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Optional<Modalidade> consultaPorId(Long id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
-
-	@Override
-	public Optional<Modalidade> findByModalidade(String modalidade) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public Optional<Modalidade> findById(Long id) {
+		Optional<Modalidade> modalidade = repository.findById(id);
+		return modalidade;
 	}
 
 	@Override
 	public Optional<Modalidade> findByDiaTreino(String diaTreino) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		Optional<Modalidade> modalidade = repository.findByDiaTreino(diaTreino);
+		return modalidade;
 	}
 
 	@Override
 	public Optional<Modalidade> findByHorarioTreino(String horarioTreino) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		Optional<Modalidade> modalidade = repository.findByHorarioTreino(horarioTreino);
+		return modalidade;
 	}
 
 	@Override
 	public Optional<Modalidade> findBySexo(String sexo) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		Optional<Modalidade> modalidade = repository.findBySexo(sexo);
+		return modalidade;
 	}
 
 	@Override
-	public Optional<Modalidade> save(Modalidade modalidade) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public void save(Modalidade modalidade) {
+		repository.save(modalidade);
 	}
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
-		
+		repository.deleteById(id);
 	}
 
 	@Override
-	public Optional<Modalidade> atualiza(Modalidade Modalidade) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public void atualiza(Modalidade modalidade) {
+		repository.save(modalidade);
 	}
 
 	@Override
 	public List<Modalidade> consultaTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findAll();
+	}
+
+	@Override
+	public Optional<Modalidade> findByNome(String nome) {
+		Optional<Modalidade> modalidade = repository.findByNome(nome);
+		return modalidade;
 	}
 
 }
