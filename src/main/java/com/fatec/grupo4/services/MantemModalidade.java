@@ -25,6 +25,8 @@ public interface MantemModalidade {
 	void save(Modalidade modalidade);
 
 	void delete(Long id);
+	
+	void Editar(Long id);
 
 	void atualiza(Modalidade Modalidade);
 

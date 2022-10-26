@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fatec.grupo4.model.Aluno;
 import com.fatec.grupo4.model.Modalidade;
 import com.fatec.grupo4.services.MantemModalidade;
 
@@ -53,7 +54,7 @@ public class GUIModalidadeController {
 //		mv.addObject("lista", lista);
 		Optional<Modalidade> modalidade = servico.findById(id);
 		if (modalidade.isPresent()) {
-			mv.addObject("modalidade", modalidade.get()); // retorna um objeto do tipo cliente
+			mv.addObject("modalidade", modalidade.get()); // retorna um objeto do tipo modalidade
 		} else {
 			return new ModelAndView("paginaMenu");
 		}
@@ -68,6 +69,19 @@ public class GUIModalidadeController {
 		return modelAndView;
 	}
 
+	//@GetMapping("/alunos/{cpf}") // diz ao metodo que ira responder a uma requisicao do tipo get
+	//public ModelAndView retornaFormParaEditarModalidade(@PathVariable("id") Long id) {
+		//ModelAndView mv = new ModelAndView("atualizarModalidade");
+		//mv.addObject("lista", lista);
+		//Optional<modalidade> modalidade = servico.consultaPorId(id);
+		//if (modalidade.isPresent()) {
+			//mv.addObject("modalidade", aluno.get()); // retorna um objeto do tipo cliente
+		//} else {
+			//return new ModelAndView("paginaMenu");
+		//}
+		//return mv; // addObject adiciona objetos para view
+	//}
+	
 	@PostMapping("/modalidades")
 	public ModelAndView save(@Valid Modalidade modalidade, BindingResult result) {
 		ModelAndView mv = new ModelAndView("consultarModalidade");

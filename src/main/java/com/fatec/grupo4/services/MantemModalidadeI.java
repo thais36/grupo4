@@ -67,4 +67,10 @@ public class MantemModalidadeI implements MantemModalidade {
 		return modalidade;
 	}
 
+	@Override
+	public void Editar(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
