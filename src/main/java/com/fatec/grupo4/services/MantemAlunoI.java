@@ -53,7 +53,7 @@ public class MantemAlunoI implements MantemAluno {
 			aluno.setEndereco(endereco.getLogradouro());
 			Optional<String> sexo = Optional.ofNullable(aluno.getSexo());
 			if (sexo.isEmpty()) {
-				logger.info(">>>>>> cliente atributo sexo => vazio");
+				logger.info(">>>>>> aluno atributo sexo => vazio");
 				aluno.setSexo("M");// default
 			}
 			return Optional.ofNullable(repository.save(aluno));
@@ -72,7 +72,7 @@ public class MantemAlunoI implements MantemAluno {
 	@Override
 	public Optional<Aluno> atualiza(Aluno aluno) {
 		logger.info(">>>>>> 1.servico altera aluno chamado");
-		Optional<Aluno> umCliente = consultaPorId(aluno.getId());
+		Optional<Aluno> umAluno = consultaPorId(aluno.getId());
 		Endereco endereco = obtemEndereco(aluno.getCep());
 		//if (umAluno.isPresent() & endereco != null) {
 			Aluno alunoModificado = new Aluno(aluno.getNome(), aluno.getDataNascimento(), aluno.getSexo(),
@@ -80,8 +80,8 @@ public class MantemAlunoI implements MantemAluno {
 			alunoModificado.setId(aluno.getId());
 			alunoModificado.obtemDataAtual(new DateTime());
 			alunoModificado.setEndereco(endereco.getLogradouro());
-			alunoModificado.setProfissao(aluno.getProfissao());
-			logger.info(">>>>>> 2. servico altera cliente cep valido para o id => " + alunoModificado.getId());
+			alunoModificado.setCategoria(aluno.getCategoria());
+			logger.info(">>>>>> 2. servico altera aluno cep valido para o id => " + alunoModificado.getId());
 			return Optional.ofNullable(repository.save(alunoModificado));
 	}
 

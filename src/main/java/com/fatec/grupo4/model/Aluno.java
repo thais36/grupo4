@@ -35,8 +35,8 @@ public class Aluno {
 	private String endereco;
 	@NotBlank(message = "O complemento deve ser informado")
 	private String complemento;
-	@NotBlank(message = "A profissão é um atributo requerido.")
-	private String profissao;
+	@NotBlank(message = "A categoria é um atributo requerido.")
+	private String categoria;
 
 	public Aluno(String nome, String dataNascimento, String sexo, String cpf, String cep, String complemento) {
 		this.nome = nome;
@@ -127,12 +127,12 @@ public class Aluno {
 		this.complemento = complemento;
 	}
 
-	public String getProfissao() {
-		return profissao;
+	public String getCategoria1() {
+		return categoria;
 	}
 
-	public void setProfissao(String profissao) {
-		this.profissao = profissao;
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 
 	public boolean validaData(String data) {
@@ -151,4 +151,14 @@ public class Aluno {
 		return dataAtual.toString(fmt);
 	}
 // equals e tostring omitidos
+
+	public Object getCategoria() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setCategoria(Object categoria2) {
+		// TODO Auto-generated method stub
+		
+	}
 }
