@@ -12,51 +12,51 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
-import com.fatec.grupo4.model.Cliente;
-import com.fatec.grupo4.model.ClienteRepository;
+import com.fatec.grupo4.model.Aluno;
+import com.fatec.grupo4.model.AlunoRepository;
 import com.fatec.grupo4.model.Endereco;
 
 @Service
-public class MantemClienteI implements MantemCliente {
+public class MantemAlunoI implements MantemAluno {
 	
 	Logger logger = LogManager.getLogger(this.getClass());
 	
 	@Autowired
-	ClienteRepository repository;
+	AlunoRepository repository;
 
-	public List<Cliente> consultaTodos() {
+	public List<Aluno> consultaTodos() {
 		logger.info(">>>>>> servico consultaTodos chamado");
 		return repository.findAll();
 	}
 
 	@Override
-	public Optional<Cliente> consultaPorCpf(String cpf) {
+	public Optional<Aluno> consultaPorCpf(String cpf) {
 		logger.info(">>>>>> servico consultaPorCpf chamado");
 		return repository.findByCpf(cpf);
 	}
 
 	@Override
-	public Optional<Cliente> consultaPorId(Long id) {
+	public Optional<Aluno> consultaPorId(Long id) {
 		logger.info(">>>>>> servico consultaPorId chamado");
 		return repository.findById(id);
 	}
 
 	@Override
-	public Optional<Cliente> save(Cliente cliente) {
+	public Optional<Aluno> save(Aluno aluno) {
 		logger.info(">>>>>> servico save chamado ");
-		Optional<Cliente> umCliente = consultaPorCpf(cliente.getCpf());
-		Endereco endereco = obtemEndereco(cliente.getCep());
+		Optional<Aluno> umAluno = consultaPorCpf(aluno.getCpf());
+		Endereco endereco = obtemEndereco(aluno.getCep());
 
-		if (umCliente.isEmpty() & endereco != null) {
+		if (umAluno.isEmpty() & endereco != null) {
 			logger.info(">>>>>> servico save - dados validos");
-			cliente.setDataCadastro(new DateTime());
-			cliente.setEndereco(endereco.getLogradouro());
-			Optional<String> sexo = Optional.ofNullable(cliente.getSexo());
+			aluno.setDataCadastro(new DateTime());
+			aluno.setEndereco(endereco.getLogradouro());
+			Optional<String> sexo = Optional.ofNullable(aluno.getSexo());
 			if (sexo.isEmpty()) {
 				logger.info(">>>>>> cliente atributo sexo => vazio");
-				cliente.setSexo("M");// default
+				aluno.setSexo("M");// default
 			}
-			return Optional.ofNullable(repository.save(cliente));
+			return Optional.ofNullable(repository.save(aluno));
 		} else {
 			return Optional.empty();
 		}
@@ -70,22 +70,19 @@ public class MantemClienteI implements MantemCliente {
 	}
 
 	@Override
-	public Optional<Cliente> atualiza(Cliente cliente) {
-		logger.info(">>>>>> 1.servico altera cliente chamado");
-		Optional<Cliente> umCliente = consultaPorId(cliente.getId());
-		Endereco endereco = obtemEndereco(cliente.getCep());
-		if (umCliente.isPresent() & endereco != null) {
-			Cliente clienteModificado = new Cliente(cliente.getNome(), cliente.getDataNascimento(), cliente.getSexo(),
-					cliente.getCpf(), cliente.getCep(), cliente.getComplemento());
-			clienteModificado.setId(cliente.getId());
-			clienteModificado.obtemDataAtual(new DateTime());
-			clienteModificado.setEndereco(endereco.getLogradouro());
-			clienteModificado.setProfissao(cliente.getProfissao());
-			logger.info(">>>>>> 2. servico altera cliente cep valido para o id => " + clienteModificado.getId());
-			return Optional.ofNullable(repository.save(clienteModificado));
-		} else {
-			return Optional.empty();
-		}
+	public Optional<Aluno> atualiza(Aluno aluno) {
+		logger.info(">>>>>> 1.servico altera aluno chamado");
+		Optional<Aluno> umCliente = consultaPorId(aluno.getId());
+		Endereco endereco = obtemEndereco(aluno.getCep());
+		//if (umAluno.isPresent() & endereco != null) {
+			Aluno alunoModificado = new Aluno(aluno.getNome(), aluno.getDataNascimento(), aluno.getSexo(),
+					aluno.getCpf(), aluno.getCep(), aluno.getComplemento());
+			alunoModificado.setId(aluno.getId());
+			alunoModificado.obtemDataAtual(new DateTime());
+			alunoModificado.setEndereco(endereco.getLogradouro());
+			alunoModificado.setProfissao(aluno.getProfissao());
+			logger.info(">>>>>> 2. servico altera cliente cep valido para o id => " + alunoModificado.getId());
+			return Optional.ofNullable(repository.save(alunoModificado));
 	}
 
 	public Endereco obtemEndereco(String cep) {

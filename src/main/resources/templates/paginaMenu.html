@@ -18,17 +18,18 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
-				<li><a th:href="@{/grupox/cliente}">Cliente </a></li>
-				<li><a th:href="@{/grupox/modalidade}"> Modalidades </a></li>
-				<li><a th:href="@{/grupox/produto}">Produtos </a></li>
-				<li><a href="#">Page 3</a></li>
+				<li><a th:href="@{/grupox/Aluno}">Alunos</a></li>
+				<li><a th:href="@{/grupox/modalidade}"> Modalidades</a></li>
+				<li><a th:href="@{/grupox/produto}">Produtos</a></li>
+				<li><a th:href="@{/grupox/campeonato}">Campeonatos</a></li>
+				<li><a th:href="@{/grupox/evento}">Eventos</a></li>
 				<li><a th:href="@{/login?logout}">Logout</a></li>
 			</ul>
 		</div>
 	</nav>
 	<div class="container">
 		<h3>Centro Paula Souza - Curso de Desenvolvimento de Softwares Multiplataforma</h3>
-		<p>2022 3o. Semestre.</p>
+		<p>3º Semestre - Ano: 2022.</p>
 		<p th:inline="text">Usuário - [[${#httpServletRequest.remoteUser}]]</p>
 	</div>
 </body>

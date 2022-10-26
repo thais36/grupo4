@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {
-	Optional<Cliente> findByCpf(String cpf);
+public interface AlunoRepository extends JpaRepository<Aluno, Long> {
+	Optional<Aluno> findByCpf(String cpf);
 
-	List<Cliente> findAllByNomeIgnoreCaseContaining(String nome);
+	List<Aluno> findAllByNomeIgnoreCaseContaining(String nome);
 }

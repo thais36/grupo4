@@ -16,7 +16,7 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 @Entity
-public class Cliente {
+public class Aluno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -38,7 +38,7 @@ public class Cliente {
 	@NotBlank(message = "A profissão é um atributo requerido.")
 	private String profissao;
 
-	public Cliente(String nome, String dataNascimento, String sexo, String cpf, String cep, String complemento) {
+	public Aluno(String nome, String dataNascimento, String sexo, String cpf, String cep, String complemento) {
 		this.nome = nome;
 		setDataNascimento(dataNascimento);
 		setDataCadastro(new DateTime());
@@ -48,7 +48,7 @@ public class Cliente {
 		this.complemento = complemento;
 	}
 
-	public Cliente() {
+	public Aluno() {
 	}
 
 	public Long getId() {
