@@ -88,8 +88,8 @@
 						<div class="row">
 							<div class="form-group col-md-8">
 								<label> Categoria </label>
-								<select th:field="*{categoria}">
-									<option th:each="p : ${lista}" th:value="${p}" th:text="${p}" /option>
+								<select th:field="*{categoria}" id="categoria">
+									<option th:each="p : ${lista}" th:value="${p}" th:text="${p}"> </option>
 								</select>
 							</div>
 						</div>

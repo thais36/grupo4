@@ -25,9 +25,16 @@ public interface MantemModalidade {
 	void save(Modalidade modalidade);
 
 	void delete(Long id);
-	
-	void Editar(Long id);
 
 	void atualiza(Modalidade Modalidade);
+
+	void editar(Long id);
+
+	Optional<Modalidade> consultaPorNome(String nome);
+
+	void editar(String nome);
+
+
+
 
 }

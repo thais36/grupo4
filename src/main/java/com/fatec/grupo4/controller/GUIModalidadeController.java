@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fatec.grupo4.model.Aluno;
 import com.fatec.grupo4.model.Modalidade;
+import com.fatec.grupo4.model.Produto;
 import com.fatec.grupo4.services.MantemModalidade;
 
 @SuppressWarnings("unused")
@@ -47,11 +48,11 @@ public class GUIModalidadeController {
 		return mv;
 	}
 
-	@GetMapping("/modalidades/{id}") // diz ao metodo que ira responder a uma requisicao do tipo get
+	@GetMapping("/modalidades/id/{id}") // diz ao metodo que ira responder a uma requisicao do tipo get
 	public ModelAndView retornaFormParaEditarModalidade(@PathVariable("id") Long id) {
 		ModelAndView mv = new ModelAndView("atualizarModalidade");
-//		List<String> lista = Arrays.asList("Individual", "Coletiva");
-//		mv.addObject("lista", lista);
+		//List<String> lista = Arrays.asList("Individual", "Coletiva");
+		//mv.addObject("lista", lista);
 		Optional<Modalidade> modalidade = servico.findById(id);
 		if (modalidade.isPresent()) {
 			mv.addObject("modalidade", modalidade.get()); // retorna um objeto do tipo modalidade
@@ -68,19 +69,6 @@ public class GUIModalidadeController {
 		ModelAndView modelAndView = new ModelAndView("redirect:/grupox/modalidades");
 		return modelAndView;
 	}
-
-	//@GetMapping("/alunos/{cpf}") // diz ao metodo que ira responder a uma requisicao do tipo get
-	//public ModelAndView retornaFormParaEditarModalidade(@PathVariable("id") Long id) {
-		//ModelAndView mv = new ModelAndView("atualizarModalidade");
-		//mv.addObject("lista", lista);
-		//Optional<modalidade> modalidade = servico.consultaPorId(id);
-		//if (modalidade.isPresent()) {
-			//mv.addObject("modalidade", aluno.get()); // retorna um objeto do tipo cliente
-		//} else {
-			//return new ModelAndView("paginaMenu");
-		//}
-		//return mv; // addObject adiciona objetos para view
-	//}
 	
 	@PostMapping("/modalidades")
 	public ModelAndView save(@Valid Modalidade modalidade, BindingResult result) {
@@ -104,8 +92,8 @@ public class GUIModalidadeController {
 	}
 
 	@PostMapping("/modalidade/id/{id}")
-	public ModelAndView atualizaModalidade(@PathVariable("id") Long id, @Valid Modalidade modalidade, BindingResult result) {
-		ModelAndView modelAndView = new ModelAndView("consultarModalidade");
+	public ModelAndView atualizarModalidade(@PathVariable("id") Long id, @Valid Modalidade modalidade, BindingResult result) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/grupox/modalidades");
 		logger.info(">>>>>> servico para atualizacao de dados chamado para o id => " + id);
 		if (result.hasErrors()) {
 			logger.info(">>>>>> servico para atualizacao de dados com erro => " + result.getFieldError().toString());

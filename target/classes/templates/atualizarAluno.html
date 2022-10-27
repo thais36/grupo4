@@ -23,11 +23,11 @@
 <body>
 	<div class="container my-5">
 		<br />
-		<h3>Atualizar Aluno</h3>
+		<h3>Atualizar Alunos</h3>
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
-					<form action="#" th:action="@{/grupox/alunos/id/{id} (id=${aluno.id}) }" th:object="${aluno}"
+					<form action="#" th:action="@{/grupox/alunos/id/{id}(id=${aluno.id})}" th:object="${aluno}"
 						method="post">
 						<div class="row">
 							<div class="form-group col-md-4">
@@ -91,9 +91,9 @@
 									class="text-danger"></span>
 							</div>
 							<div class="form-group col-md-8">
-								<label for="complemento" class="col-form-label">Categoria</label>
-								<select th:field="*{categoria}">
-									<option th:each="p : ${lista}" th:value="${p}" th:text="${p}" /option>
+								<label for="categoria" class="col-form-label">Categoria</label>
+									<option th:if="${#fields.hasErrors('categoria')}" th:errors="*{cotegoria}"
+									class="text-danger"></option>
 								</select>
 							</div>
 							<div class="form-group col-md-8">

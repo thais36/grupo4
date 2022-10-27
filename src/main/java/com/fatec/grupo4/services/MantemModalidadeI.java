@@ -50,6 +50,11 @@ public class MantemModalidadeI implements MantemModalidade {
 	public void delete(Long id) {
 		repository.deleteById(id);
 	}
+	
+	@Override
+	public void editar(String nome) {
+		repository.findByNome(nome);
+	}
 
 	@Override
 	public void atualiza(Modalidade modalidade) {
@@ -68,9 +73,14 @@ public class MantemModalidadeI implements MantemModalidade {
 	}
 
 	@Override
-	public void Editar(Long id) {
+	public void editar(Long id) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
+	public Optional<Modalidade> consultaPorNome(String nome) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
 }

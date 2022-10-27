@@ -76,7 +76,7 @@ public class MantemAlunoI implements MantemAluno {
 		Endereco endereco = obtemEndereco(aluno.getCep());
 		//if (umAluno.isPresent() & endereco != null) {
 			Aluno alunoModificado = new Aluno(aluno.getNome(), aluno.getDataNascimento(), aluno.getSexo(),
-					aluno.getCpf(), aluno.getCep(), aluno.getComplemento());
+					aluno.getCpf(), aluno.getCep(), aluno.getComplemento(), aluno.getCategoria1());
 			alunoModificado.setId(aluno.getId());
 			alunoModificado.obtemDataAtual(new DateTime());
 			alunoModificado.setEndereco(endereco.getLogradouro());

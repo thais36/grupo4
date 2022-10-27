@@ -38,7 +38,7 @@ public class Aluno {
 	@NotBlank(message = "A categoria é um atributo requerido.")
 	private String categoria;
 
-	public Aluno(String nome, String dataNascimento, String sexo, String cpf, String cep, String complemento) {
+	public Aluno(String nome, String dataNascimento, String sexo, String cpf, String cep, String complemento, String categoria) {
 		this.nome = nome;
 		setDataNascimento(dataNascimento);
 		setDataCadastro(new DateTime());
@@ -46,6 +46,7 @@ public class Aluno {
 		this.cpf = cpf;
 		this.cep = cep;
 		this.complemento = complemento;
+		this.categoria = categoria;
 	}
 
 	public Aluno() {

@@ -85,8 +85,8 @@ public class GUIAlunoController {
 	}
 
 	@PostMapping("/alunos/id/{id}")
-	public ModelAndView atualizaCliente(@PathVariable("id") Long id, @Valid Aluno aluno, BindingResult result) {
-		ModelAndView modelAndView = new ModelAndView("consultarAluno");
+	public ModelAndView atualizaAluno(@PathVariable("id") Long id, @Valid Aluno aluno, BindingResult result) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/grupox/alunos");
 		logger.info(">>>>>> servico para atualizacao de dados chamado para o id => " + id);
 		if (result.hasErrors()) {
 			logger.info(">>>>>> servico para atualizacao de dados com erro => " + result.getFieldError().toString());
@@ -95,7 +95,16 @@ public class GUIAlunoController {
 		} else {
 			servico.atualiza(aluno);
 			modelAndView.addObject("alunos", servico.consultaTodos());
+			if (servico.save(aluno).isPresent()) {
+				logger.info(">>>>>> controller chamou atualizar e consultar todos");
+				modelAndView.addObject("alunos", servico.consultaTodos());
+			} else {
+				logger.info(">>>>>> controller cadastrar com dados invalidos");
+				modelAndView.setViewName("atualizarAluno");
+				modelAndView.addObject("message", "Dados invalidos");
+			}
 		}
+		
 		return modelAndView;
 	}
 }
