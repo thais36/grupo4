@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Produto {
@@ -95,6 +96,16 @@ public class Produto {
 
 	public void setDEscricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public @NotNull int getCusto() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public String getProdutoId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 //	public boolean validaData(String data) {
