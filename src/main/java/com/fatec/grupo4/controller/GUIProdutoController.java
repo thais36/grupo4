@@ -20,14 +20,14 @@ import com.fatec.grupo4.services.MantemProduto;
 
 @SuppressWarnings("unused")
 @Controller
-@RequestMapping(path = "/produto")
+@RequestMapping(path = "/grupox")
 public class GUIProdutoController {
 	Logger logger = LogManager.getLogger(GUIProdutoController.class);
 	@Autowired
 	MantemProduto servico;
 
-	// /produto/clientes
-	@GetMapping("/clientes")
+	// /produto/Produtos
+	@GetMapping("/produtos")
 	public ModelAndView retornaFormDeConsultaTodosProduto() {
 		ModelAndView mv = new ModelAndView("consultarProduto");
 		mv.addObject("produtos", servico.consultaTodos());
@@ -46,7 +46,7 @@ public class GUIProdutoController {
 		ModelAndView mv = new ModelAndView("atualizarProduto");
 		Optional<Produto> produto = servico.consultaPorNome(nome);
 		if (produto.isPresent()) {
-			mv.addObject("produto", produto.get()); // retorna um objeto do tipo cliente
+			mv.addObject("produto", produto.get()); // retorna um objeto do tipo Produto
 		} else {
 			return new ModelAndView("paginaMenu");
 		}
@@ -54,7 +54,7 @@ public class GUIProdutoController {
 	}
 
 	@GetMapping("/produtos/id/{id}")
-	public ModelAndView excluirNoFormDeConsultaCliente(@PathVariable("id") Long id) {
+	public ModelAndView excluirNoFormDeConsultaProduto(@PathVariable("id") Long id) {
 		servico.delete(id);
 		logger.info(">>>>>> 1. servico de exclusao chamado para o id => " + id);
 		ModelAndView modelAndView = new ModelAndView("consultarProduto");
