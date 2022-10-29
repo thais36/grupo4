@@ -12,51 +12,53 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
-import com.fatec.grupo4.model.Aluno;
-import com.fatec.grupo4.model.AlunoRepository;
+import com.fatec.grupo4.model.Atleta;
+import com.fatec.grupo4.model.AtletaRepository;
 import com.fatec.grupo4.model.Endereco;
 
 @Service
-public class MantemAlunoI implements MantemAluno {
+public class MantemAtletaI implements MantemAtleta {
 	
 	Logger logger = LogManager.getLogger(this.getClass());
 	
 	@Autowired
-	AlunoRepository repository;
+	AtletaRepository repository;
 
-	public List<Aluno> consultaTodos() {
+	private Optional<Atleta> umAtleta;
+
+	public List<Atleta> consultaTodos() {
 		logger.info(">>>>>> servico consultaTodos chamado");
 		return repository.findAll();
 	}
 
 	@Override
-	public Optional<Aluno> consultaPorCpf(String cpf) {
+	public Optional<Atleta> consultaPorCpf(String cpf) {
 		logger.info(">>>>>> servico consultaPorCpf chamado");
 		return repository.findByCpf(cpf);
 	}
 
 	@Override
-	public Optional<Aluno> consultaPorId(Long id) {
+	public Optional<Atleta> consultaPorId(Long id) {
 		logger.info(">>>>>> servico consultaPorId chamado");
 		return repository.findById(id);
 	}
 
 	@Override
-	public Optional<Aluno> save(Aluno aluno) {
+	public Optional<Atleta> save(Atleta atleta) {
 		logger.info(">>>>>> servico save chamado ");
-		Optional<Aluno> umAluno = consultaPorCpf(aluno.getCpf());
-		Endereco endereco = obtemEndereco(aluno.getCep());
+		Optional<Atleta> umAtleta = consultaPorCpf(atleta.getCpf());
+		Endereco endereco = obtemEndereco(atleta.getCep());
 
-		if (umAluno.isEmpty() & endereco != null) {
+		if (umAtleta.isEmpty() & endereco != null) {
 			logger.info(">>>>>> servico save - dados validos");
-			aluno.setDataCadastro(new DateTime());
-			aluno.setEndereco(endereco.getLogradouro());
-			Optional<String> sexo = Optional.ofNullable(aluno.getSexo());
+			atleta.setDataCadastro(new DateTime());
+			atleta.setEndereco(endereco.getLogradouro());
+			Optional<String> sexo = Optional.ofNullable(atleta.getSexo());
 			if (sexo.isEmpty()) {
-				logger.info(">>>>>> aluno atributo sexo => vazio");
-				aluno.setSexo("M");// default
+				logger.info(">>>>>> atleta atributo sexo => vazio");
+				atleta.setSexo("M");// default
 			}
-			return Optional.ofNullable(repository.save(aluno));
+			return Optional.ofNullable(repository.save(atleta));
 		} else {
 			return Optional.empty();
 		}
@@ -70,19 +72,19 @@ public class MantemAlunoI implements MantemAluno {
 	}
 
 	@Override
-	public Optional<Aluno> atualiza(Aluno aluno) {
+	public Optional<Atleta> atualiza(Atleta atleta) {
 		logger.info(">>>>>> 1.servico altera aluno chamado");
-//		Optional<Aluno> umAluno = consultaPorId(aluno.getId());
-		Endereco endereco = obtemEndereco(aluno.getCep());
-		//if (umAluno.isPresent() & endereco != null) {
-			Aluno alunoModificado = new Aluno(aluno.getNome(), aluno.getDataNascimento(), aluno.getSexo(),
-					aluno.getCpf(), aluno.getCep(), aluno.getComplemento(), aluno.getCategoria1());
-			alunoModificado.setId(aluno.getId());
-			alunoModificado.obtemDataAtual(new DateTime());
-			alunoModificado.setEndereco(endereco.getLogradouro());
-			alunoModificado.setCategoria(aluno.getCategoria());
-			logger.info(">>>>>> 2. servico altera aluno cep valido para o id => " + alunoModificado.getId());
-			return Optional.ofNullable(repository.save(alunoModificado));
+		setUmAtleta(consultaPorId(atleta.getId()));
+		Endereco endereco = obtemEndereco(atleta.getCep());
+		//if (umAtleta.isPresent() & endereco != null) {
+			Atleta atletaModificado = new Atleta(atleta.getNome(), atleta.getDataNascimento(), atleta.getSexo(),
+					atleta.getCpf(), atleta.getCep(), atleta.getComplemento(), atleta.getCategoria1());
+			atletaModificado.setId(atleta.getId());
+			atletaModificado.obtemDataAtual(new DateTime());
+			atletaModificado.setEndereco(endereco.getLogradouro());
+			atletaModificado.setCategoria(atleta.getCategoria());
+			logger.info(">>>>>> 2. servico altera atleta cep valido para o id => " + atletaModificado.getId());
+			return Optional.ofNullable(repository.save(atletaModificado));
 	}
 
 	public Endereco obtemEndereco(String cep) {
@@ -101,9 +103,13 @@ public class MantemAlunoI implements MantemAluno {
 			return null;
 		}
 	}
+
+	public Optional<Atleta> getUmAtleta() {
+		return umAtleta;
+	}
+
+	public void setUmAtleta(Optional<Atleta> umAtleta) {
+		this.umAtleta = umAtleta;
+	}
 	
 }
-
-
-
-
