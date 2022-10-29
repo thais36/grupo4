@@ -7,6 +7,9 @@
 </head>
 
 <body>
+	 <div class="navbar-header">
+      <h1 class="title">Sistema Integrado de Gestão - Atlética FATEC Zona Leste</h1>
+    </div>
 	<div th:if="${param.error}">Invalid username and password.</div>
 	<div th:if="${param.logout}">You have been logged out.</div>
 	<form th:action="@{/login}" method="post">
@@ -15,7 +18,7 @@
 
 				<form>
 					<input type="text" name="username" placeholder="username" /> <input type="password" name="password"
-						placeholder="password" />
+						placeholder="senha" />
 					<button>login</button>
 					<p class="message">
 						Não cadastrado? <a href="#">Crie uma conta</a>
