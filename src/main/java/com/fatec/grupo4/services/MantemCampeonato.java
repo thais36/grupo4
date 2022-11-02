@@ -1,11 +1,11 @@
-package com.fatec.grupo4.services;
+package com.fatec.grupox.services;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.fatec.grupo4.model.Campeonato;
+import com.fatec.grupox.model.Campeonato;
 
 @Service
 public interface MantemCampeonato {

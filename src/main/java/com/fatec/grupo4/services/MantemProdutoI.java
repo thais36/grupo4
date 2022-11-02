@@ -1,4 +1,4 @@
-package com.fatec.grupo4.services;
+package com.fatec.grupox.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fatec.grupo4.model.Produto;
-import com.fatec.grupo4.model.ProdutoRepository;
+import com.fatec.grupox.model.Produto;
+import com.fatec.grupox.model.ProdutoRepository;
 
 @Service
 public class MantemProdutoI implements MantemProduto {
@@ -55,6 +55,11 @@ public class MantemProdutoI implements MantemProduto {
 	}
 	@Override
 	public Optional<Produto> atualiza(Long id, Produto produto) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+	@Override
+	public Optional<Produto> atualiza(Produto produto) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}

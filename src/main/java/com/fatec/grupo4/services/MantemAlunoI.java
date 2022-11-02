@@ -1,4 +1,4 @@
-package com.fatec.grupo4.services;
+package com.fatec.grupox.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,9 +12,9 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
-import com.fatec.grupo4.model.Aluno;
-import com.fatec.grupo4.model.AlunoRepository;
-import com.fatec.grupo4.model.Endereco;
+import com.fatec.grupox.model.Aluno;
+import com.fatec.grupox.model.AlunoRepository;
+import com.fatec.grupox.model.Endereco;
 
 @Service
 public class MantemAlunoI implements MantemAluno {

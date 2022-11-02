@@ -1,8 +1,9 @@
-package com.fatec.grupo4.services;
+package com.fatec.grupox.services;
 
 import java.util.List;
 import java.util.Optional;
-import com.fatec.grupo4.model.Atleta;
+
+import com.fatec.grupox.model.Atleta;
 
 public interface MantemAtleta {
 	
@@ -18,5 +19,4 @@ public interface MantemAtleta {
 
 	Optional<Atleta> atualiza(Atleta atleta);
 	
-
 }

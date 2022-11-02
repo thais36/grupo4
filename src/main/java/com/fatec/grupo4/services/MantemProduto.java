@@ -1,9 +1,9 @@
-package com.fatec.grupo4.services;
+package com.fatec.grupox.services;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.fatec.grupo4.model.Produto;
+import com.fatec.grupox.model.Produto;
 
 public interface MantemProduto {
 	
@@ -22,6 +22,8 @@ public interface MantemProduto {
 	Optional<Produto> save(Produto produto);
 
 	void delete(Long id);
+
+	Optional<Produto> atualiza(Produto produto);
 
 	Optional<Produto> atualiza(Long id, Produto produto);
 

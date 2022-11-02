@@ -1,4 +1,4 @@
-package com.fatec.grupo4.services;
+package com.fatec.grupox.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,9 +12,9 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 
-import com.fatec.grupo4.model.Fornecedor;
-import com.fatec.grupo4.model.FornecedorRepository;
-import com.fatec.grupo4.model.Endereco;
+import com.fatec.grupox.model.Endereco;
+import com.fatec.grupox.model.Fornecedor;
+import com.fatec.grupox.model.FornecedorRepository;
 
 @Service
 public class MantemFornecedorI implements MantemFornecedor {
@@ -23,6 +23,8 @@ public class MantemFornecedorI implements MantemFornecedor {
 	
 	@Autowired
 	FornecedorRepository repository;
+
+	private Optional<Fornecedor> umFornecedor;
 
 	public List<Fornecedor> consultaTodos() {
 		logger.info(">>>>>> servico consultaTodos chamado");
@@ -66,7 +68,7 @@ public class MantemFornecedorI implements MantemFornecedor {
 	@Override
 	public Optional<Fornecedor> atualiza(Fornecedor fornecedor) {
 		logger.info(">>>>>> 1.servico altera fornecedor chamado");
-		Optional<Fornecedor> umFornecedor = consultaPorId(fornecedor.getId());
+		setUmFornecedor(consultaPorId(fornecedor.getId()));
 		Endereco endereco = obtemEndereco(fornecedor.getCep());
 		//if (umFornecedor.isPresent() & endereco != null) {
 		Fornecedor fornecedorModificado = new Fornecedor(fornecedor.getrazaoSocial(),
@@ -93,6 +95,14 @@ public class MantemFornecedorI implements MantemFornecedor {
 			logger.info(">>>>>> consulta CEP inválido erro HttpClientErrorException =>" + e.getMessage());
 			return null;
 		}
+	}
+
+	public Optional<Fornecedor> getUmFornecedor() {
+		return umFornecedor;
+	}
+
+	public void setUmFornecedor(Optional<Fornecedor> umFornecedor) {
+		this.umFornecedor = umFornecedor;
 	}
 	
 }

@@ -1,9 +1,9 @@
-package com.fatec.grupo4.services;
+package com.fatec.grupox.services;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.fatec.grupo4.model.Fornecedor ;
+import com.fatec.grupox.model.Fornecedor;
 
 public interface MantemFornecedor  {
 	

@@ -1,4 +1,4 @@
-package com.fatec.grupo4.services;
+package com.fatec.grupox.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,8 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fatec.grupo4.model.Modalidade;
-import com.fatec.grupo4.model.ModalidadeRepository;
+import com.fatec.grupox.model.Modalidade;
+import com.fatec.grupox.model.ModalidadeRepository;
 
 @Service
 public class MantemModalidadeI implements MantemModalidade {
