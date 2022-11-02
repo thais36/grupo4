@@ -30,14 +30,12 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
-					<form action="#" th:action="@{/grupox/pedido}" th:object="${pedido}" method="post">
+					<form action="#" th:action="@{/grupox/pedidos}" th:object="${umPedido}" method="post">
 						<div class="row">
-
 							<div class="form-group col-md-4">
 								<label for="cpf" class="col-form-label">CPF</label>
 								<input type="text" th:field="*{cpf}" class="form-control" id="cpf" placeholder="cpf">
-								<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="text-danger">
-								</span>
+								<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="textdanger"> </span>
 							</div>
 						</div>
 						<div class="row">
@@ -46,7 +44,7 @@
 								<input type="text" th:field="*{produtoId}" class="form-control" id="produtoId"
 									placeholder="Código Produto">
 								<span th:if="${#fields.hasErrors('produtoId')}" th:errors="*{produtoId}"
-									class="text-danger"> </span>
+									class="textdanger"> </span>
 							</div>
 						</div>
 						<div class="row">
@@ -56,11 +54,13 @@
 									placeholder="Quantidade"> <span th:if="${#fields.hasErrors('quantidade')}"
 									th:errors="*{quantidade}" class="text-danger"></span>
 							</div>
-							<div class="form-group col-md-8">
+							<div class="form-group col-md-20">
 								<input type="submit" class="btn btn-primary" value="Cadastrar Pedido">
-								<input type="button" class="btn btn-primary" value="Consultar Pedido"
-									onclick="consulta();">
+								<a type="submit" class="btn btn-primary" th:href="@{/scv/pedidos}"> Consultar
+									Pedidos</a>
+
 							</div>
+
 						</div>
 					</form>
 				</div>

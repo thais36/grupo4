@@ -7,7 +7,7 @@
 	<title>Atualizar Fornecedor</title>
 	<script type="text/javascript">
 		function consulta() {
-			window.open("/grupox/fornecedores");
+			window.open("/grupox/pedidos");
 		}
 	</script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
-					<form action="#" th:action="@{/grupox/fornecedor/id/{id}(id=${fornecedor.id})}"
+					<form action="#" th:action="@{/grupox/pedido/id/{id}(id=${pedido.id})}"
 						th:object="${fornecedor}" method="post">
 						<div class="row">
 							<div class="form-group col-md-4">
