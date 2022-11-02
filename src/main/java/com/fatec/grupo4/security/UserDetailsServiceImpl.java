@@ -1,12 +1,13 @@
-package com.fatec.grupo4.security;
+package com.fatec.grupox.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import com.fatec.grupo4.model.UserAppRepository;
-import com.fatec.grupo4.model.UsuarioApp;
+
+import com.fatec.grupox.model.UserAppRepository;
+import com.fatec.grupox.model.UsuarioApp;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
