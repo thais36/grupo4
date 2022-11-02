@@ -1,4 +1,4 @@
-package com.fatec.grupo4.model;
+package com.fatec.grupox.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

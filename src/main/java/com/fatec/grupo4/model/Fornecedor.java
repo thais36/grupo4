@@ -1,4 +1,4 @@
-package com.fatec.grupo4.model;
+package com.fatec.grupox.model;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -9,12 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-//import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.br.CNPJ;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+@SuppressWarnings("unused")
 @Entity
 public class Fornecedor {
 	@Id

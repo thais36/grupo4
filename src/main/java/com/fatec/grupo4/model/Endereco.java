@@ -1,4 +1,4 @@
-package com.fatec.grupo4.model;
+package com.fatec.grupox.model;
 
 public class Endereco {
 	private Long id;
@@ -85,9 +85,8 @@ public class Endereco {
 	}
 
 	public void setUf(String uf) {
- this.uf = uf;
- }
+		this.uf = uf;
+	}
 // omitidos hashcode e equals
 // omitido toString
-	
 }
