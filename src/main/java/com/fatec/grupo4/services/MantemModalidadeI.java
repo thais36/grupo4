@@ -18,69 +18,57 @@ public class MantemModalidadeI implements MantemModalidade {
 	ModalidadeRepository repository;
 
 	@Override
-	public Optional<Modalidade> findById(Long id) {
-		Optional<Modalidade> modalidade = repository.findById(id);
-		return modalidade;
+	public List<Modalidade> consultaTodos() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Modalidade> consultaPorId(Long id) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<Modalidade> findByModalidade(String modalidade) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 
 	@Override
 	public Optional<Modalidade> findByDiaTreino(String diaTreino) {
-		Optional<Modalidade> modalidade = repository.findByDiaTreino(diaTreino);
-		return modalidade;
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 
 	@Override
 	public Optional<Modalidade> findByHorarioTreino(String horarioTreino) {
-		Optional<Modalidade> modalidade = repository.findByHorarioTreino(horarioTreino);
-		return modalidade;
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 
 	@Override
 	public Optional<Modalidade> findBySexo(String sexo) {
-		Optional<Modalidade> modalidade = repository.findBySexo(sexo);
-		return modalidade;
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 
 	@Override
-	public void save(Modalidade modalidade) {
-		repository.save(modalidade);
+	public Optional<Modalidade> save(Modalidade modalidade) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
 	}
 
 	@Override
 	public void delete(Long id) {
-		repository.deleteById(id);
-	}
-	
-	@Override
-	public void editar(String nome) {
-		repository.findByNome(nome);
-	}
-
-	@Override
-	public void atualiza(Modalidade modalidade) {
-		repository.save(modalidade);
-	}
-
-	@Override
-	public List<Modalidade> consultaTodos() {
-		return repository.findAll();
-	}
-
-	@Override
-	public Optional<Modalidade> findByNome(String nome) {
-		Optional<Modalidade> modalidade = repository.findByNome(nome);
-		return modalidade;
-	}
-
-	@Override
-	public void editar(Long id) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Optional<Modalidade> consultaPorNome(String nome) {
+	public Optional<Modalidade> atualiza(Modalidade Modalidade) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
+
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,14 +15,13 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
-
 <body>
 	<header th:replace="fragments/header :: menuSuperior">
 		<div>header</div>
 	</header>
 	<div class="container my-5">
 		<br />
-		<h3>Cadastrar aluno</h3>
+		<h3>Cadastrar Aluno</h3>
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
@@ -32,8 +30,7 @@
 							<div class="form-group col-md-4">
 								<label for="cpf" class="col-form-label">CPF</label>
 								<input type="text" th:field="*{cpf}" class="form-control" id="cpf" placeholder="CPF">
-								<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="text-danger">
-								</span>
+								<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="text-danger"></span>
 							</div>
 						</div>
 						<div class="row">
@@ -94,8 +91,8 @@
 							</div>
 						</div>
 						<div class="form-group col-md-8">
-							<input type="submit" class="btn btn-primary" value="Cadastrar aluno">
-							<input type="button" class="btn btn-primary" value="Consultar aluno"
+							<input type="submit" class="btn btn-primary" value="Cadastrar Aluno">
+							<input type="button" class="btn btn-primary" value="Consultar Aluno"
 								onclick="consulta();">
 						</div>
 					</form>

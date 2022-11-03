@@ -1,4 +1,4 @@
-package com.fatec.grupo4.controller;
+package com.fatec.grupox.controller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,26 +15,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fatec.grupo4.model.Produto;
-import com.fatec.grupo4.services.MantemProduto;
+import com.fatec.grupox.model.Produto;
+import com.fatec.grupox.services.MantemProduto;
 
-@SuppressWarnings("unused")
 @Controller
-@RequestMapping(path = "/grupox")
+@RequestMapping(path = "/produto")
 public class GUIProdutoController {
 	Logger logger = LogManager.getLogger(GUIProdutoController.class);
 	@Autowired
 	MantemProduto servico;
 
-	// /produto/Produtos
-	@GetMapping("/produtos")
+	@GetMapping("/clientes")
 	public ModelAndView retornaFormDeConsultaTodosProduto() {
 		ModelAndView mv = new ModelAndView("consultarProduto");
 		mv.addObject("produtos", servico.consultaTodos());
 		return mv;
 	}
 
-	// /produto/produto
 	@GetMapping("/produto")
 	public ModelAndView retornaFormDeCadastroDe(Produto produto) {
 		ModelAndView mv = new ModelAndView("consultarProduto");
@@ -46,7 +43,7 @@ public class GUIProdutoController {
 		ModelAndView mv = new ModelAndView("atualizarProduto");
 		Optional<Produto> produto = servico.consultaPorNome(nome);
 		if (produto.isPresent()) {
-			mv.addObject("produto", produto.get()); // retorna um objeto do tipo Produto
+			mv.addObject("produto", produto.get()); // retorna um objeto do tipo cliente
 		} else {
 			return new ModelAndView("paginaMenu");
 		}
@@ -54,7 +51,7 @@ public class GUIProdutoController {
 	}
 
 	@GetMapping("/produtos/id/{id}")
-	public ModelAndView excluirNoFormDeConsultaProduto(@PathVariable("id") Long id) {
+	public ModelAndView excluirNoFormDeConsultaCliente(@PathVariable("id") Long id) {
 		servico.delete(id);
 		logger.info(">>>>>> 1. servico de exclusao chamado para o id => " + id);
 		ModelAndView modelAndView = new ModelAndView("consultarProduto");

@@ -23,7 +23,7 @@
 <body>
 	<div class="container my-5">
 		<br />
-		<h3>Atualizar Alunos</h3>
+		<h3>Atualizar Aluno</h3>
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
@@ -84,7 +84,7 @@
 									class="text-danger"></span>
 							</div>
 							<div class="form-group col-md-8">
-								<label for="complemento" class="col-form-label">Complemento</label>
+								<label for="complemento" class="col-form-label">Número/Complemento</label>
 								<input type="text" th:field="*{complemento}" class="form-control" id="complemento"
 									placeholder="complemento">
 								<span th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"
@@ -92,8 +92,8 @@
 							</div>
 							<div class="form-group col-md-8">
 								<label for="categoria" class="col-form-label">Categoria</label>
-									<option th:if="${#fields.hasErrors('categoria')}" th:errors="*{cotegoria}"
-									class="text-danger"></option>
+									<select th:field="*{categoria}" id="categoria">
+									<option th:each="p : ${lista}" th:value="${p}" th:text="${p}"> </option>
 								</select>
 							</div>
 							<div class="form-group col-md-8">
