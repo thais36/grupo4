@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -15,6 +16,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
+
 <body>
 	<header th:replace="fragments/header :: menuSuperior">
 		<div>header</div>
@@ -81,20 +83,30 @@
 								<span th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"
 									class="text-danger"></span>
 							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-md-8">
-								<label> Categoria </label>
-								<select th:field="*{categoria}" id="categoria">
-									<option th:each="p : ${lista}" th:value="${p}" th:text="${p}"> </option>
-								</select>
+
+
+							<div class="row">
+								<div class="form-group col-md-8">
+									<div>
+										<label>Categoria</label>
+									</div>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault1" value="Gestão">
+									<label> Gestão </label>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault2" value="Filiado" checked>
+									<label> Filiado</label>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault3" value="Outros" checked>
+									<label> Outros </label>
+								</div>
+
 							</div>
-						</div>
-						<div class="form-group col-md-8">
-							<input type="submit" class="btn btn-primary" value="Cadastrar Aluno">
-							<input type="button" class="btn btn-primary" value="Consultar Aluno"
-								onclick="consulta();">
-						</div>
+							<div class="form-group col-md-8">
+								<input type="submit" class="btn btn-primary" value="Cadastrar Aluno">
+								<input type="button" class="btn btn-primary" value="Consultar Aluno"
+									onclick="consulta();">
+							</div>
 					</form>
 				</div>
 			</div>

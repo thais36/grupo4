@@ -153,9 +153,9 @@ public class Aluno {
 	}
 // equals e tostring omitidos
 
-	public Object getCategoria() {
+	public String getCategoria() {
 		// TODO Auto-generated method stub
-		return null;
+		return categoria;
 	}
 
 	public void setCategoria(Object categoria2) {
