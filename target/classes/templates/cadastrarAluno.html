@@ -84,20 +84,39 @@
 								<span th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"
 									class="text-danger"></span>
 							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-md-8">
-								<label> Categoria </label>
-								<select th:field="*{categoria}" id="categoria">
-									<option th:each="p : ${lista}" th:value="${p}" th:text="${p}"> </option>
-								</select>
+
+
+							<div class="row">
+								<div class="form-group col-md-8">
+									<div>
+										<label>Categoria</label>
+									</div>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault1" value="Gestão">
+									<label> Gestão </label>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault2" value="Filiado" checked>
+									<label> Filiado</label>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault3" value="Outros" checked>
+									<label> Outros </label>
+								</div>
+
 							</div>
+							<div class="form-group col-md-8">
+								<input type="submit" class="btn btn-primary" value="Cadastrar Aluno">
+								<input type="button" class="btn btn-primary" value="Consultar Aluno"
+									onclick="consulta();">
+							</div>
+<<<<<<< HEAD
 						</div>
 						<div class="form-group col-md-8">
 							<input type="submit" class="btn btn-primary" value="Cadastrar aluno">
 							<input type="button" class="btn btn-primary" value="Consultar aluno"
 								onclick="consulta();">
 						</div>
+=======
+>>>>>>> 0d75cfca7e03b5aebff7c41c3ba552b7959393f6
 					</form>
 				</div>
 			</div>

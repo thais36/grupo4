@@ -23,7 +23,7 @@
 	</header>
 	<div class="container my-5">
 		<br />
-		<h3>Cadastrar aluno</h3>
+		<h3>Cadastrar Aluno</h3>
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
@@ -32,8 +32,7 @@
 							<div class="form-group col-md-4">
 								<label for="cpf" class="col-form-label">CPF</label>
 								<input type="text" th:field="*{cpf}" class="form-control" id="cpf" placeholder="CPF">
-								<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="text-danger">
-								</span>
+								<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="text-danger"></span>
 							</div>
 						</div>
 						<div class="row">
@@ -84,20 +83,30 @@
 								<span th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"
 									class="text-danger"></span>
 							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-md-8">
-								<label> Categoria </label>
-								<select th:field="*{categoria}" id="categoria">
-									<option th:each="p : ${lista}" th:value="${p}" th:text="${p}"> </option>
-								</select>
+
+
+							<div class="row">
+								<div class="form-group col-md-8">
+									<div>
+										<label>Categoria</label>
+									</div>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault1" value="Gestão">
+									<label> Gestão </label>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault2" value="Filiado" checked>
+									<label> Filiado</label>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault3" value="Outros" checked>
+									<label> Outros </label>
+								</div>
+
 							</div>
-						</div>
-						<div class="form-group col-md-8">
-							<input type="submit" class="btn btn-primary" value="Cadastrar aluno">
-							<input type="button" class="btn btn-primary" value="Consultar aluno"
-								onclick="consulta();">
-						</div>
+							<div class="form-group col-md-8">
+								<input type="submit" class="btn btn-primary" value="Cadastrar Aluno">
+								<input type="button" class="btn btn-primary" value="Consultar Aluno"
+									onclick="consulta();">
+							</div>
 					</form>
 				</div>
 			</div>

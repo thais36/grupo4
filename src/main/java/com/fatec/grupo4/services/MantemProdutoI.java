@@ -58,10 +58,5 @@ public class MantemProdutoI implements MantemProduto {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
-	@Override
-	public Optional<Produto> atualiza(Produto produto) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
 	
 }

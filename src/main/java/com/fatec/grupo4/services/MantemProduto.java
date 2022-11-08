@@ -23,8 +23,6 @@ public interface MantemProduto {
 
 	void delete(Long id);
 
-	Optional<Produto> atualiza(Produto produto);
-
 	Optional<Produto> atualiza(Long id, Produto produto);
 
 }
