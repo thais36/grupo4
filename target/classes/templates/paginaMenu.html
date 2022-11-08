@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Sistema Integrado de Gestão - Atlética FATEC Zona Leste</title>
+	<title>Sistema Integrado de Gestão</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -19,11 +19,8 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
 				<li><a th:href="@{/grupox/aluno}">Alunos</a></li>
-				<li><a th:href="@{/grupox/atleta}"> Atletas</a></li>
 				<li><a th:href="@{/grupox/modalidade}"> Modalidades</a></li>
 				<li><a th:href="@{/grupox/produto}">Produtos</a></li>
-				<li><a th:href="@{/grupox/pedido}">Pedidos</a></li>
-				<li><a th:href="@{/grupox/fornecedor}">Fornecedores</a></li>
 				<li><a th:href="@{/grupox/campeonato}">Campeonatos</a></li>
 				<li><a th:href="@{/grupox/evento}">Eventos</a></li>
 				<li><a th:href="@{/login?logout}">Logout</a></li>
@@ -31,16 +28,10 @@
 		</div>
 	</nav>
 	<div class="container">
-		<h3>Desenvolvimento de Software Multiplataforma</h3>
-		<h4> Projeto Interdisciplinar: Página WEB da Atlética FATEC Zona Leste </h4>
-		<br></br>
-		<p>3º Semestre - DSM - FATEC Zona Leste - 2022</p>
+		<h3>Centro Paula Souza - Curso de Desenvolvimento de Softwares Multiplataforma</h3>
+		<p>3º Semestre - Ano: 2022.</p>
 		<p th:inline="text">Usuário - [[${#httpServletRequest.remoteUser}]]</p>
 	</div>
-	<div>
-		<img src=".../static/images/brasaoatletica.png" alt="Brasão da Atlética">
-	</div>
-
 </body>
 
 </html>

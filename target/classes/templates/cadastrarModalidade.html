@@ -35,53 +35,53 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="form-group col-md-8">
-					<div>
-						<label>Sexo</label>
+				<div class="row">
+					<div class="form-group col-md-8">
+						<div>
+							<label>Sexo</label>
+						</div>
+						<input type="radio" th:field="*{sexo}" name="sexo" id="sexo" value="M">
+						<label> Masculino </label>
+						<input type="radio" th:field="*{sexo}" name="sexo" id="sexo" value="F" checked>
+						<label> Feminino </label>
+						<span th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class="text-danger">
+							<label> Unissex </label>
+							<input type="radio" th:field="*{sexo}" name="sexo" id="sexo" value="U">
+						</span>
 					</div>
-					<input type="radio" th:field="*{sexo}" name="flexRadioDefault" id="flexRadioDefault1" value="M">
-					<label> Masculino </label>
-					<input type="radio" th:field="*{sexo}" name="flexRadioDefault" id="flexRadioDefault2" value="F"
-						checked>
-					<label> Feminino </label>
-					<input type="radio" th:field="*{sexo}" name="flexRadioDefault" id="flexRadioDefault1" value="Misto">
-					<label> Misto </label>
-					<span th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class="text-danger"></span>
 				</div>
-			</div>
 
-			<div>
-				<label>Treinos</label>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-8">
-					<label for="diaTreino" class="col-form-label">Data</label>
-					<input type="text" th:field="*{diaTreino}" class="form-control" id="diaTreino" placeholder=" / / ">
-					<span th:if="${#fields.hasErrors('diaTreino')}" th:errors="*{diaTreino}" class="text-danger">
-					</span>
+				<div class="row">
+					<div class="form-group col-md-8">
+						<label for="diaTreino" class="col-form-label">diaTreino</label>
+						<input type="text" th:field="*{diaTreino}" class="form-control" id="diaTreino"
+							placeholder="diaTreino">
+						<span th:if="${#fields.hasErrors('diaTreino')}" th:errors="*{diaTreino}" class="text-danger">
+						</span>
+					</div>
 				</div>
-			</div>
-			<div class="row text-danger"></span>
-			</div>
-			<div class="row">
-				<div class="form-group col-md-8">
-					<label for="horarioTreino" class="col-form-label">Horário</label>
-					<input type="text" th:field="*{horarioTreino}" class="form-control" id="horarioTreino"
-						placeholder="00:00">
-					<span th:if="${#fields.hasErrors('horarioTreino')}" th:errors="*{horarioTreino}"
-						class="text-danger"></span>
+				<div class="row text-danger"></span>
 				</div>
-			</div>
-			<div class="row text-danger"></div>
 
-			<div class="form-group col-md-8">
-				<input type="submit" class="btn btn-primary" value="Cadastrar Modalidade">
-				<input type="button" class="btn btn-primary" value="Consultar Modalidade" onclick="consulta();">
-			</div>
+				<div class="row">
+					<div class="form-group col-md-8">
+						<label for="horarioTreino" class="col-form-label">horarioTreino</label>
+						<input type="text" th:field="*{horarioTreino}" class="form-control" id="horarioTreino"
+							placeholder="horarioTreino">
+						<span th:if="${#fields.hasErrors('horarioTreino')}" th:errors="*{horarioTreino}"
+							class="text-danger"></span>
+					</div>
+				</div>
+				<div class="row text-danger"></div>
+
+				<div class="form-group col-md-8">
+					<input type="submit" class="btn btn-primary" value="Cadastrar Modalidade">
+					<input type="button" class="btn btn-primary" value="Consultar Modalidade" onclick="consulta();">
+				</div>
 		</form>
 	</div>
 	</div>
-
+	  
 	</div>
 	<footer th:replace="fragments/footer :: rodape">
 		<div>footer</div>
