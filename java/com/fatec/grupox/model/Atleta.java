@@ -155,7 +155,7 @@ public class Atleta {
 
 	public Object getCategoria() {
 		// TODO Auto-generated method stub
-		return null;
+		return categoria;
 	}
 
 	public void setCategoria(Object categoria2) {

@@ -45,8 +45,8 @@ public class GUIAtletaController {
 	}
 
 	@GetMapping("/atletas/{cpf}") // diz ao metodo que ira responder a uma requisicao do tipo get
-	public ModelAndView retornaFormParaEditarAluno(@PathVariable("cpf") String cpf) {
-		ModelAndView mv = new ModelAndView("atualizarAtletas");
+	public ModelAndView retornaFormParaEditarAtleta(@PathVariable("cpf") String cpf) {
+		ModelAndView mv = new ModelAndView("atualizarAtleta");
 		List<String> lista = Arrays.asList("Gestão", "Filiado", "Outros");
 		mv.addObject("lista", lista);
 		Optional<Atleta> atleta = servico.consultaPorCpf(cpf);
@@ -77,7 +77,7 @@ public class GUIAtletaController {
 		} else {
 			if (servico.save(atleta).isPresent()) {
 				logger.info(">>>>>> controller chamou cadastrar e consultar todos");
-				mv.addObject("atleta", servico.consultaTodos());
+				mv.addObject("atletas", servico.consultaTodos());
 			} else {
 				logger.info(">>>>>> controller cadastrar com dados invalidos");
 				mv.setViewName("cadastrarAtleta");
@@ -89,12 +89,12 @@ public class GUIAtletaController {
 
 	@PostMapping("/atletas/id/{id}")
 	public ModelAndView atualizaAtleta(@PathVariable("id") Long id, @Valid Atleta atleta, BindingResult result) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/grupox/atletas");
+		ModelAndView modelAndView = new ModelAndView("consultarAtleta");
 		logger.info(">>>>>> servico para atualizacao de dados chamado para o id => " + id);
 		if (result.hasErrors()) {
 			logger.info(">>>>>> servico para atualizacao de dados com erro => " + result.getFieldError().toString());
 			atleta.setId(id);
-			return new ModelAndView("atualizarAtleta");
+			return new ModelAndView("redirect:/grupox/atletas");
 		} else {
 			servico.atualiza(atleta);
 			modelAndView.addObject("atletas", servico.consultaTodos());
@@ -103,7 +103,7 @@ public class GUIAtletaController {
 				modelAndView.addObject("atletas", servico.consultaTodos());
 			} else {
 				logger.info(">>>>>> controller cadastrar com dados invalidos");
-				modelAndView.setViewName("atualizarAtleta");
+				modelAndView.setViewName("redirect:/grupox/atletas");
 				modelAndView.addObject("message", "Dados invalidos");
 			}
 		}
