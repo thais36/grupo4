@@ -15,6 +15,7 @@
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
 </head>
 
 <body>
@@ -86,68 +87,14 @@
 								onclick="consulta();">
 						</div>
 					</form>
+				 </div>
 				</div>
 			</div>
-<<<<<<< HEAD
-			<div class="row">
-				<div class="row">
-					<div class="form-group col-md-8">
-						<div>
-							<label>Sexo</label>
-						</div>
-						<input type="radio" th:field="*{sexo}" name="sexo" id="sexo" value="M">
-						<label> Masculino </label>
-						<input type="radio" th:field="*{sexo}" name="sexo" id="sexo" value="F" checked>
-						<label> Feminino </label>
-						<span th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class="text-danger">
-							<label> Unissex </label>
-							<input type="radio" th:field="*{sexo}" name="sexo" id="sexo" value="U">
-						</span>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="form-group col-md-8">
-						<label for="diaTreino" class="col-form-label">diaTreino</label>
-						<input type="text" th:field="*{diaTreino}" class="form-control" id="diaTreino"
-							placeholder="diaTreino">
-						<span th:if="${#fields.hasErrors('diaTreino')}" th:errors="*{diaTreino}" class="text-danger">
-						</span>
-					</div>
-				</div>
-				<div class="row text-danger"></span>
-				</div>
-
-				<div class="row">
-					<div class="form-group col-md-8">
-						<label for="horarioTreino" class="col-form-label">horarioTreino</label>
-						<input type="text" th:field="*{horarioTreino}" class="form-control" id="horarioTreino"
-							placeholder="horarioTreino">
-						<span th:if="${#fields.hasErrors('horarioTreino')}" th:errors="*{horarioTreino}"
-							class="text-danger"></span>
-					</div>
-				</div>
-				<div class="row text-danger"></div>
-
-				<div class="form-group col-md-8">
-					<input type="submit" class="btn btn-primary" value="Cadastrar Modalidade">
-					<input type="button" class="btn btn-primary" value="Consultar Modalidade" onclick="consulta();">
-				</div>
-		</form>
-	</div>
-	</div>
-	  
-	</div>
-	<footer th:replace="fragments/footer :: rodape">
-		<div>footer</div>
-	</footer>
-=======
 			<h6 th:text="${message}" class="text-danger"></h6>
 		</div>
 		<footer th:replace="fragments/footer :: rodape">
 			<div>footer</div>
 		</footer>
->>>>>>> 0d75cfca7e03b5aebff7c41c3ba552b7959393f6
 </body>
 
 </html>

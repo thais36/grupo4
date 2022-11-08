@@ -1,14 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Cadastrar Fornecedor</title>
+	<script type="text/javascript">
+		function consulta() {
+			window.open("/grupox/fornecedores");
+		}
+	</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
 </head>
 
 <body>
-	<h1> Cadastrar Fornecedor </h1>
-	<img th:src="@{/images/cps.png}" />
+	<header th:replace="fragments/header :: menuSuperior">
+		<div>header</div>
+	</header>
+	<div class="container my-5">
+		<br />
+		<h3>Cadastrar Fornecedor</h3>
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-8">
+					<form action="#" th:action="@{/grupox/fornecedores}" th:object="${fornecedor}" method="post">
+						<div class="row">
+							<div class="form-group col-md-4">
+								<label for="cnpj" class="col-form-label">CNPJ</label>
+								<input type="text" th:field="*{cnpj}" class="form-control" id="cnpj" placeholder="CNPJ">
+								<span th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}" class="text-danger">
+								</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="razaoSocial" class="col-form-label">Razão Social</label>
+								<input type="text" th:field="*{razaoSocial}" class="form-control" id="razaoSocial" placeholder="Razão Social">
+								<span th:if="${#fields.hasErrors('razaoSocial')}" th:errors="*{razaoSocial}" class="text-danger">
+								</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="cep" class="col-form-label">CEP</label>
+								<input type="text" th:field="*{cep}" class="form-control" id="cep" placeholder="CEP">
+								<span th:if="${#fields.hasErrors('cep')}" th:errors="*{cep}" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="complemento" class="col-form-label">Endereço</label>
+								<input type="text" th:field="*{endereco}" class="form-control" id="endereco"
+									placeholder="endereco">
+								<span th:if="${#fields.hasErrors('endereco')}" th:errors="*{endereco}"
+									class="text-danger"></span>
+						</div>
+						<div class="form-group col-md-8">
+							<input type="submit" class="btn btn-primary" value="Cadastrar Fornecedor">
+							<input type="button" class="btn btn-primary" value="Consultar Fornecedor"
+								onclick="consulta();">
+						</div>
+					</form>
+				  </div>
+				</div>
+			</div>
+			<h6 th:text="${message}" class="text-danger"></h6>
+		</div>
+		<footer th:replace="fragments/footer :: rodape">
+			<div>footer</div>
+		</footer>
 </body>
 
 </html>

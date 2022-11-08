@@ -10,8 +10,8 @@
 	 <div class="navbar-header">
       <h1 class="title">Sistema Integrado de Gestão - Atlética FATEC Zona Leste</h1>
     </div>
-	<div th:if="${param.error}">Invalid username and password.</div>
-	<div th:if="${param.logout}">You have been logged out.</div>
+	<div th:if="${param.error}">Dados de usuário inválidos</div>
+	<div th:if="${param.logout}">Você saiu do sistema</div>
 	<form th:action="@{/login}" method="post">
 		<div class="login-page">
 			<div class="form">
@@ -26,6 +26,7 @@
 
 				</form>
 			</div>
+			<img src="images/logo_atletica_semfundo.png" alt="logo atletica" width="80%" height="auto">
 		</div>
 	</form>
 </body>

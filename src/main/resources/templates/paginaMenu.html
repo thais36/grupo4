@@ -8,13 +8,16 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
 </head>
 
 <body>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Sistema Integrado de Gestão</a>
+				<a class="navbar-brand" href="#">
+				   <img src="images/logo_atletica_semfundo.png" class="navbar-brand-image" width="55" height="55" alt="">
+				</a>
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
@@ -30,14 +33,15 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="container">
-		<h3>Desenvolvimento de Software Multiplataforma</h3>
-		<h4> Projeto Interdisciplinar: Página WEB da Atlética FATEC Zona Leste </h4>
+	<container>
+	<div class="home-container">
+		<h3>Bem vindo ao Sistema Integrado de Gestão</h3>
+		<h4>Atlética FATEC Zona Leste </h4>
 		<br></br>
-		<p>3º Semestre - DSM - FATEC Zona Leste - 2022</p>
-		<p th:inline="text">Usuário - [[${#httpServletRequest.remoteUser}]]</p>
+		<p>FATEC Zona Leste - 2022</p>
+		<p th:inline="text">Usuário: [[${#httpServletRequest.remoteUser}]]</p>
 	</div>
-
+   </container>
 </body>
 
 </html>

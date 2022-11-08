@@ -15,6 +15,7 @@
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
 </head>
 <header th:replace="fragments/header :: menuSuperior">
 	<div>header</div>
@@ -90,7 +91,7 @@
 								<span th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"
 									class="text-danger"></span>
 							</div>
-
+						</div>
 							<div class="row">
 								<div class="form-group col-md-8">
 									<div>
@@ -114,11 +115,14 @@
 								</div>
 							</div>
 					</form>
+				  </div>
 				</div>
-			</div>
+		
 			<h6 th:text="${message}" class="text-danger"></h6>
 		</div>
-	</div>
+	<footer th:replace="fragments/footer :: rodape">
+			<div>footer</div>
+		</footer>
 </body>
 
 </html>

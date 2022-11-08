@@ -14,6 +14,9 @@ img {
   text-align: center;
 }
 
+.title{
+	color:#e4bb2c;
+}
 form { 
  position: relative; 
  z-index: 1; 

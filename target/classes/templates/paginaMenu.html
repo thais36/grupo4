@@ -2,40 +2,46 @@
 <html lang="en">
 
 <head>
-	<title>Sistema Integrado de Gestão</title>
+	<title>Sistema Integrado de Gestão - Atlética FATEC Zona Leste</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
 </head>
 
 <body>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Sistema Integrado de Gestão</a>
+				<a class="navbar-brand" href="#">
+				   <img src="images/logo_atletica_semfundo.png" class="navbar-brand-image" width="55" height="55" alt="">
+				</a>
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
 				<li><a th:href="@{/grupox/aluno}">Alunos</a></li>
+				<li><a th:href="@{/grupox/atleta}"> Atletas</a></li>
 				<li><a th:href="@{/grupox/modalidade}"> Modalidades</a></li>
 				<li><a th:href="@{/grupox/produto}">Produtos</a></li>
+				<li><a th:href="@{/grupox/pedido}">Pedidos</a></li>
+				<li><a th:href="@{/grupox/fornecedor}">Fornecedores</a></li>
 				<li><a th:href="@{/grupox/campeonato}">Campeonatos</a></li>
 				<li><a th:href="@{/grupox/evento}">Eventos</a></li>
 				<li><a th:href="@{/login?logout}">Logout</a></li>
 			</ul>
 		</div>
 	</nav>
-	<div class="container">
-		<h3>Centro Paula Souza - Curso de Desenvolvimento de Softwares Multiplataforma</h3>
-		<p>3º Semestre - Ano: 2022.</p>
-		<p th:inline="text">Usuário - [[${#httpServletRequest.remoteUser}]]</p>
+	<container>
+	<div class="home-container">
+		<h3>Bem vindo ao Sistema Integrado de Gestão</h3>
+		<h4>Atlética FATEC Zona Leste </h4>
+		<br></br>
+		<p>FATEC Zona Leste - 2022</p>
+		<p th:inline="text">Usuário: [[${#httpServletRequest.remoteUser}]]</p>
 	</div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 0d75cfca7e03b5aebff7c41c3ba552b7959393f6
+   </container>
 </body>
 
 </html>
