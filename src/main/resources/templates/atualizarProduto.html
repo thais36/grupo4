@@ -27,7 +27,7 @@
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
-					<form action="#" th:action="@{/grupo4/produtos}(id=${produto.id})}" th:object="${produto}"
+					<form action="#" th:action="@{/grupo4/produtos/id/{id}(id=${aluno.id})}" th:object="${produto}"
 						method="post">
 						<div class="row">
 							<div class="form-group col-md-4">
@@ -56,7 +56,7 @@
 						</div>
 						<div class="row">
 							<div class="form-group col-md-4">
-								<label for="preco" class="col-form-label">PreÃ§o</label>
+								<label for="preco" class="col-form-label">Preço</label>
 								<input type="text" th:field="*{preco}" class="form-control" id="preco" placeholder="preco">
 								<span th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}" class="text-danger">
 								</span>
@@ -64,9 +64,9 @@
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
-								<label for="qntdadedeitens" class="col-form-label">Quantidade de Itens</label>
-								<input type="text" th:field="*{qntdadedeitens}" class="form-control" id="nome" placeholder="Quantidade de Itens">
-								<span th:if="${#fields.hasErrors('qntdadedeitens')}" th:errors="*{qntdadedeitens}" class="text-danger">
+								<label for="qntidadedeitens" class="col-form-label">Quantidade de Itens</label>
+								<input type="text" th:field="*{qnidadedeitens}" class="form-control" id="nome" placeholder="Quantidade de Itens">
+								<span th:if="${#fields.hasErrors('qntidadedeitens')}" th:errors="*{qntidadedeitens}" class="text-danger">
 								</span>
 							</div>
 						</div>

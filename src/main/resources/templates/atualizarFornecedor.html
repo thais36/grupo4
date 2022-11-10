@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Cadastrar Fornecedor</title>
+	<title>Atualizar Fornecedor</title>
 	<script type="text/javascript">
 		function consulta() {
 			window.open("/grupo4/fornecedores");
@@ -16,29 +16,30 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
+<header th:replace="fragments/header :: menuSuperior">
+	<div>header</div>
+</header>
 
 <body>
-	<header th:replace="fragments/header :: menuSuperior">
-		<div>header</div>
-	</header>
 	<div class="container my-5">
 		<br />
-		<h3>Cadastrar Fornecedor</h3>
+		<h3>Atualizar Fornecedor</h3>
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
-					<form action="#" th:action="@{/grupo4/fornecedores}" th:object="${fornecedor}" method="post">
+					<form action="#" th:action="@{/grupo4/fornecedores/id/{id}(id=${fornecedor.id})}" th:object="${fornecedor}"
+						method="post">
 						<div class="row">
 							<div class="form-group col-md-4">
-								<label for="cnpj" class="col-form-label">CNPJ</label>
-								<input type="text" th:field="*{cnpj}" class="form-control" id="cnpj" placeholder="CNPJ">
+								<label for="cpf" class="col-form-label">CNPJ</label> <input type="text" th:field="*{cnpj}"
+									class="form-control" id="cnpj" placeholder="cnpj">
 								<span th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}" class="text-danger">
 								</span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
-								<label for="razaoSocial" class="col-form-label">Razão Social</label>
+								<label for="razaoSocial" class="col-form-label">Razão Social </label>
 								<input type="text" th:field="*{razaoSocial}" class="form-control" id="razaoSocial" placeholder="Razão Social">
 								<span th:if="${#fields.hasErrors('razaoSocial')}" th:errors="*{razaoSocial}" class="text-danger">
 								</span>
@@ -50,37 +51,38 @@
 								<input type="text" th:field="*{cep}" class="form-control" id="cep" placeholder="CEP">
 								<span th:if="${#fields.hasErrors('cep')}" th:errors="*{cep}" class="text-danger"></span>
 							</div>
-						</div>
-						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="endereco" class="col-form-label">Endereço</label>
+								<input type="text" th:field="*{endereco}" class="form-control" id="endereco"
+									placeholder="endereco" readonly>
+								<span th:if="${#fields.hasErrors('endereco')}" th:errors="*{endereco}"
+									class="text-danger"></span>
+							</div>
 							<div class="form-group col-md-8">
 								<label for="complemento" class="col-form-label">Complemento</label>
 								<input type="text" th:field="*{complemento}" class="form-control" id="complemento"
-									placeholder="Complemento numero/apto">
+									placeholder="complemento">
 								<span th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"
 									class="text-danger"></span>
 							</div>
-						</div>
-						<div class="row">
 							<div class="form-group col-md-8">
-								<label> Categoria </label>
-								<select th:field="*{categoria}" id="categoria">
-									<option th:each="p : ${lista}" th:value="${p}" th:text="${p}"> </option>
+								<label for="categoria" class="col-form-label">Categoria</label>
+									<option th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"
+									class="text-danger"></option>
 								</select>
 							</div>
-						</div>
-						<div class="form-group col-md-8">
-							<input type="submit" class="btn btn-primary" value="Cadastrar Fornecedor">
-							<input type="button" class="btn btn-primary" value="Consultar Fornecedor"
-								onclick="consulta();">
+							<div class="form-group col-md-8">
+								<input type="submit" class="btn btn-primary" value="Atualizar Fornecedor">
+								<input type="button" class="btn btn-primary" value="Consultar Fornecedor"
+									onclick="consulta();">
+							</div>
 						</div>
 					</form>
 				</div>
 			</div>
 			<h6 th:text="${message}" class="text-danger"></h6>
 		</div>
-		<footer th:replace="fragments/footer :: rodape">
-			<div>footer</div>
-		</footer>
+	</div>
 </body>
 
 </html>

@@ -18,9 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fatec.grupo4.model.Produto;
 import com.fatec.grupo4.services.MantemProduto;
 
-@SuppressWarnings("unused")
 @Controller
-@RequestMapping(path = "grupo4")
+@RequestMapping(path = "/grupo4")
 public class GUIProdutoController {
 	Logger logger = LogManager.getLogger(GUIProdutoController.class);
 	@Autowired
@@ -38,6 +37,9 @@ public class GUIProdutoController {
 	@GetMapping("/produto")
 	public ModelAndView retornaFormDeCadastroDe(Produto produto) {
 		ModelAndView mv = new ModelAndView("cadastrarProduto");
+		List<String> lista = Arrays.asList("Gestão", "Filiado", "Outros");
+		mv.addObject("lista", lista);
+		mv.addObject("Produto", produto);
 		return mv;
 	}
 
@@ -88,7 +90,7 @@ public class GUIProdutoController {
 		if (result.hasErrors()) {
 			logger.info(">>>>>> servico para atualizacao de dados com erro => " + result.getFieldError().toString());
 			produto.setId(id);
-			return new ModelAndView("atualizarProduto");
+			return new ModelAndView("redirect:/grupo4/produtos");
 		} else {
 		servico.atualiza(produto);
 		modelAndView.addObject("produtos", servico.consultaTodos());

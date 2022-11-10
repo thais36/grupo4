@@ -22,7 +22,7 @@ import com.fatec.grupo4.services.MantemModalidade;
 @SuppressWarnings("unused")
 @Controller
 
-@RequestMapping(path = "grupo4")
+@RequestMapping(path = "/grupo4")
 
 public class GUIModalidadeController {
 	

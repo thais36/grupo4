@@ -9,6 +9,6 @@ public interface MantemPedido {
  public List<Pedido> consultaTodos();
  public void excluiPedido(Long id);
  public Pedido cadastrarPedido(Pedido pedido);
- public boolean isClienteCadastrado(String cpf);
+ public boolean isAlunoCadastrado(String cpf);
 Pedido cadastrarPedido(PedidoDTO pedidoDTO);
 }

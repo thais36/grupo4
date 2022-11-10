@@ -12,21 +12,21 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotBlank(message = "Nome Ã© requerido")
+	@NotBlank(message = "Nome é requerido")
 	private String nome;
-	@NotBlank(message = "Nome Ã© requerido")
+	@NotBlank(message = "Nome é requerido")
 	private String categoria;
-	@NotBlank(message = "categoria Ã© requerido")
+	@NotBlank(message = "categoria é requerido")
 	private String preco;
-	@NotBlank(message = "PreÃ§o Ã© requerido")
+	@NotBlank(message = "Preço é requerido")
 	private String qntidadedeitens;
-	@NotBlank(message = "Quantidade de itens Ã© requerido")
+	@NotBlank(message = "Quantidade de itens é requerido")
 	private String tamanho;
-	@NotBlank(message = "Tamanho Ã© requerido")
+	@NotBlank(message = "Tamanho é requerido")
 	private String descricao;
-	@NotBlank(message = "DescriÃ§Ã£o Ã© requerido")
+	@NotBlank(message = "Descrição é requerida")
 	private String cor;
-	@NotBlank(message = "Cor Ã© requerido")
+	@NotBlank(message = "Cor é requerido")
 	
 
 	public Produto(String nome, String categoria, String preco, String qntidadedeitens, String tamanho, String descricao, String cor) {
@@ -94,7 +94,7 @@ public class Produto {
 		return descricao;
 	}
 
-	public void setDEscricao(String descricao) {
+	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 

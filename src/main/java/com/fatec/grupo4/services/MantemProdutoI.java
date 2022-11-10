@@ -62,5 +62,10 @@ public class MantemProdutoI implements MantemProduto {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
+	@Override
+	public Optional<Produto> consultaPorId(String cpf) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
 	
 }

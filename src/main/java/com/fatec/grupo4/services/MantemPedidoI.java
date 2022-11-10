@@ -87,11 +87,11 @@ public class MantemPedidoI implements MantemPedido {
 	public Pedido cadastrarPedido(Pedido pedido) {
 		logger.info(">>>>>> servico cadastrar pedido ");
 		try {
-			if (isAlunoCadastrado(pedido.getCpf())) {
-				logger.info(">>>>>> servico cadastrar pedido - cliente cadastrado ");
+			if (isAlunoCadastrado1(pedido.getCpf())) {
+				logger.info(">>>>>> servico cadastrar pedido - aluno cadastrado ");
 				return save(pedido);
 			} else {
-				logger.info(">>>>>> servico cadastrar pedido - cliente invalido ");
+				logger.info(">>>>>> servico cadastrar pedido - aluno invalido ");
 				return null;
 			}
 		} catch (Exception e) {
@@ -103,12 +103,12 @@ public class MantemPedidoI implements MantemPedido {
 	/**
 	 * Verifica se o cpf esta cadastrado na base retorna true se estiver cadastrado
 	 */
-	public boolean isAlunoCadastrado(String cpf) {
+	public boolean isAlunoCadastrado1(String cpf) {
 		return mantemAluno.consultaPorCpf(cpf).isPresent();
 	}
 
 	@Override
-	public boolean isClienteCadastrado(String cpf) {
+	public boolean isAlunoCadastrado(String cpf) {
 		// TODO Auto-generated method stub
 		return false;
 	}

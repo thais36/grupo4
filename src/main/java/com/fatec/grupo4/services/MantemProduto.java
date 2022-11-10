@@ -9,7 +9,7 @@ public interface MantemProduto {
 	
 	List<Produto> consultaTodos();
 
-	Optional<Produto> consultaPorId(Long id);
+	Optional<Produto> consultaPorId(String cpf);
 
 	Optional<Produto> consultaPorNome(String nome);
 
@@ -24,6 +24,8 @@ public interface MantemProduto {
 	void delete(Long id);
 
 	Optional<Produto> atualiza(Produto produto);
+
+	Optional<Produto> consultaPorId(Long id);
 
 }
 
