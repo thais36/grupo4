@@ -49,7 +49,7 @@
 									<input type="radio" th:field="*{sexo}" name="sexo" id="sexo" value="F" checked>
 									<label> Feminino </label>
 									<span th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class="text-danger">
-										<label> Unissex </label>
+										<label> Misto </label>
 										<input type="radio" th:field="*{sexo}" name="sexo" id="sexo" value="U">
 									</span>
 								</div>
@@ -57,9 +57,9 @@
 
 							<div class="row">
 								<div class="form-group col-md-8">
-									<label for="diaTreino" class="col-form-label">diaTreino</label>
+									<label for="diaTreino" class="col-form-label">Dia do(s) Treino(s)</label>
 									<input type="text" th:field="*{diaTreino}" class="form-control" id="diaTreino"
-										placeholder="diaTreino">
+										placeholder="Dia da semana">
 									<span th:if="${#fields.hasErrors('diaTreino')}" th:errors="*{diaTreino}"
 										class="text-danger">
 									</span>
@@ -70,9 +70,9 @@
 
 							<div class="row">
 								<div class="form-group col-md-8">
-									<label for="horarioTreino" class="col-form-label">horarioTreino</label>
+									<label for="horarioTreino" class="col-form-label">Horário do Treino</label>
 									<input type="text" th:field="*{horarioTreino}" class="form-control"
-										id="horarioTreino" placeholder="horarioTreino">
+										id="00:00 às 00:00" placeholder="horarioTreino">
 									<span th:if="${#fields.hasErrors('horarioTreino')}" th:errors="*{horarioTreino}"
 										class="text-danger"></span>
 								</div>

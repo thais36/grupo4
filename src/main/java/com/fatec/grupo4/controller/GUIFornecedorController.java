@@ -35,7 +35,7 @@ public class GUIFornecedorController {
 	@GetMapping("/fornecedor")
 	public ModelAndView retornaFormDeCadastroDe(Fornecedor fornecedor) {
 		ModelAndView mv = new ModelAndView("cadastrarFornecedor");
-		List<String> lista = Arrays.asList("Gest„o", "Filiado", "Outros");
+		List<String> lista = Arrays.asList("Gest√£o", "Filiado", "Outros");
 		mv.addObject("lista", lista);
 		mv.addObject("Fornecedor", fornecedor);
 		return mv;
@@ -44,7 +44,7 @@ public class GUIFornecedorController {
 	@GetMapping("/fornecedores/{cnpj}") // diz ao metodo que ira responder a uma requisicao do tipo get
 	public ModelAndView retornaFormParaEditarFornecedor(@PathVariable("cnpj") String cnpj) {
 		ModelAndView mv = new ModelAndView("atualizarFornecedor");
-		List<String> lista = Arrays.asList("Gest„o", "Filiado", "Outros");
+		List<String> lista = Arrays.asList("Gest√£o", "Filiado", "Outros");
 		mv.addObject("lista", lista);
 		Optional<Fornecedor> fornecedor = servico.consultaPorCnpj(cnpj);
 		if (fornecedor.isPresent()) {
@@ -68,7 +68,7 @@ public class GUIFornecedorController {
 	public ModelAndView save(@Valid Fornecedor fornecedor, BindingResult result) {
 		ModelAndView mv = new ModelAndView("consultarFornecedor");
 		if (result.hasErrors()) {
-			List<String> lista = Arrays.asList("Gest„o", "Filiado", "Outros");
+			List<String> lista = Arrays.asList("Gest√£o", "Filiado", "Outros");
 			mv.addObject("lista", lista);
 			mv.setViewName("cadastrarFornecedor");
 		} else {
@@ -86,12 +86,12 @@ public class GUIFornecedorController {
 
 	@PostMapping("/fornecedores/id/{id}")
 	public ModelAndView atualizaFornecedor(@PathVariable("id") Long id, @Valid Fornecedor fornecedor, BindingResult result) {
-		ModelAndView modelAndView = new ModelAndView("redirect:/grupo4/fornecedores");
+		ModelAndView modelAndView = new ModelAndView("consultarFornecedor");
 		logger.info(">>>>>> servico para atualizacao de dados chamado para o id => " + id);
 		if (result.hasErrors()) {
 			logger.info(">>>>>> servico para atualizacao de dados com erro => " + result.getFieldError().toString());
 			fornecedor.setId(id);
-			return new ModelAndView("atualizarFornecedor");
+			return new ModelAndView("redirect:/grupo4/fornecedores");
 		} else {
 			servico.atualiza(fornecedor);
 			modelAndView.addObject("fornecedores", servico.consultaTodos());
@@ -100,7 +100,7 @@ public class GUIFornecedorController {
 				modelAndView.addObject("fornecedores", servico.consultaTodos());
 			} else {
 				logger.info(">>>>>> controller cadastrar com dados invalidos");
-				modelAndView.setViewName("atualizarFornecedor");
+				modelAndView.setViewName("redirect:/grupo4/fornecedores");
 				modelAndView.addObject("message", "Dados invalidos");
 			}
 		}

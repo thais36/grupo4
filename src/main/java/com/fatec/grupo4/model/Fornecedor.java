@@ -20,18 +20,18 @@ public class Fornecedor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotBlank(message = "Razão Social é requerido")
+	@NotBlank(message = "RazÃ£o Social Ã© requerida")
 	private String razaoSocial;
 	private String dataCadastro;
-	@CNPJ(message = "CNPJ inválido.")
+	@CNPJ(message = "CNPJ invalido.")
 	@Column(unique = true) // nao funciona com @Valid tem que tratar na camada de persistencia
 	private String cnpj;
-	//@NotBlank(message = "O CEP é obrigatório.")
+	//@NotBlank(message = "O CEP Ã© obrigatorio.")
 	private String cep;
 	private String endereco;
 	//@NotBlank(message = "O complemento deve ser informado")
 	private String complemento;
-	@NotBlank(message = "A categoria é um atributo requerido.")
+	@NotBlank(message = "A categoria Ã© um atributo requerido.")
 	private String categoria;
 
 	public Fornecedor(String razaoSocial, String cnpj, String cep, String complemento, String categoria) {
@@ -114,7 +114,7 @@ public class Fornecedor {
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		df.setLenient(false); //
 		try {
-			df.parse(data); // data válida (exemplo 30 fev - 31 nov)
+			df.parse(data); // data vï¿½lida (exemplo 30 fev - 31 nov)
 			return true;
 		} catch (ParseException ex) {
 			return false;

@@ -25,16 +25,16 @@
 			<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet" />
 		</div>
 		<div class="panel-body" th:switch="${fornecedores}">
-			<h5 th:case="null">N„o existem Fornecedores cadastrados ainda!</h5>
+			<h5 th:case="null">N√£o existem Fornecedores cadastrados ainda!</h5>
 			<div th:case="*">
 				<table class="table">
 					<thead>
 						<tr>
 							<th>ID</th>
 							<th>CNPJ</th>
-							<th>Raz„o Social</th>
+							<th>Raz√£o Social</th>
 							<th>CEP</th>
-							<th>EndereÁo</th>
+							<th>Endere√ßo</th>
 							<th>Complemento</th>
 							<th>Dt. Cadastro</th>
 							<th>Categoria</th>

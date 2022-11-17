@@ -39,8 +39,8 @@
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
-								<label for="razaoSocial" class="col-form-label">Raz„o Social </label>
-								<input type="text" th:field="*{razaoSocial}" class="form-control" id="razaoSocial" placeholder="Raz„o Social">
+								<label for="razaoSocial" class="col-form-label">Raz√£o Social </label>
+								<input type="text" th:field="*{razaoSocial}" class="form-control" id="razaoSocial" placeholder="Raz√£o Social">
 								<span th:if="${#fields.hasErrors('razaoSocial')}" th:errors="*{razaoSocial}" class="text-danger">
 								</span>
 							</div>
@@ -52,7 +52,7 @@
 								<span th:if="${#fields.hasErrors('cep')}" th:errors="*{cep}" class="text-danger"></span>
 							</div>
 							<div class="form-group col-md-8">
-								<label for="endereco" class="col-form-label">EndereÁo</label>
+								<label for="endereco" class="col-form-label">Endere√ßo</label>
 								<input type="text" th:field="*{endereco}" class="form-control" id="endereco"
 									placeholder="endereco" readonly>
 								<span th:if="${#fields.hasErrors('endereco')}" th:errors="*{endereco}"
@@ -64,13 +64,23 @@
 									placeholder="complemento">
 								<span th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"
 									class="text-danger"></span>
-							</div>
-							<div class="form-group col-md-8">
-								<label for="categoria" class="col-form-label">Categoria</label>
-									<option th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"
-									class="text-danger"></option>
-								</select>
-							</div>
+									
+							<div class="row">
+								<div class="form-group col-md-8">
+									<div>
+										<label>Categoria</label>
+									</div>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault1" value="Gest√£o">
+									<label> Gest√£o </label>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault2" value="Filiado" checked>
+									<label> Filiado</label>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault3" value="Outros" checked>
+									<label> Outros </label>
+								</div>
+						
 							<div class="form-group col-md-8">
 								<input type="submit" class="btn btn-primary" value="Atualizar Fornecedor">
 								<input type="button" class="btn btn-primary" value="Consultar Fornecedor"

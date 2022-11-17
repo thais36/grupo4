@@ -53,7 +53,7 @@ public class GUIPedidoController {
 		if (result.hasErrors()) {
 			logger.info(">>>>>> 1. erro no pedido dto ");
 			mv.setViewName("cadastrarPedido");
-			// mv.addObject("umPedido", new PedidoDTO());
+			mv.addObject("umPedido", new PedidoDTO());
 			mv.addObject("umPedido", umPedido);
 			mv.addObject("message", "Dados inválidos");
 		} else {

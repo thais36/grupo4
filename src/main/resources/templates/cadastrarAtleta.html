@@ -49,7 +49,7 @@
 							<div class="form-group col-md-8">
 								<label for="dataNascimento" class="col-form-label">Data Nascimento</label>
 								<input type="text" th:field="*{dataNascimento}" class="form-control" id="dataNascimento"
-									placeholder="Data Nascimento">
+									placeholder="DD/MM/AAAA">
 								<span th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}"
 									class="text-danger">
 								</span>
@@ -79,7 +79,7 @@
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
-								<label for="complemento" class="col-form-label">Complemento</label>
+								<label for="complemento" class="col-form-label">Número/Complemento</label>
 								<input type="text" th:field="*{complemento}" class="form-control" id="complemento"
 									placeholder="Complemento numero/apto">
 								<span th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"

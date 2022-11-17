@@ -37,7 +37,7 @@ public class GUIProdutoController {
 	@GetMapping("/produto")
 	public ModelAndView retornaFormDeCadastroDe(Produto produto) {
 		ModelAndView mv = new ModelAndView("cadastrarProduto");
-		List<String> lista = Arrays.asList("Gest„o", "Filiado", "Outros");
+		List<String> lista = Arrays.asList("Gest√£o", "Filiado", "Outros");
 		mv.addObject("lista", lista);
 		mv.addObject("Produto", produto);
 		return mv;
