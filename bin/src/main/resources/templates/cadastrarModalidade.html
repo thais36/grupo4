@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="utf-8">
@@ -7,7 +7,7 @@
 	<title>Cadastrar Modalidades Esportivas</title>
 	<script type="text/javascript">
 		function consulta() {
-			window.open("/grupox/modalidades");
+			window.open("/grupo4/modalidades");
 		}
 	</script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,8 +15,8 @@
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
 </head>
+
 <body>
 	<header th:replace="fragments/header :: menuSuperior">
 		<div>header</div>
@@ -24,10 +24,8 @@
 	<div class="container my-5">
 		<br />
 		<h3>Cadastrar Modalidades Esportivas</h3>
-		<div class="card">
-		<div class="card-body">
-		<div class="col-md-8">
-		<form action="#" th:action="@{/grupox/modalidades}" th:object="${modalidade}" method="post">
+
+		<form action="#" th:action="@{/grupo4/modalidades}" th:object="${modalidade}" method="post">
 			<div class="row">
 				<div class="form-group col-md-8">
 					<label for="nome" class="col-form-label">Nome da Modalidade</label>
@@ -36,6 +34,7 @@
 					</span>
 				</div>
 			</div>
+			<div class="row">
 				<div class="row">
 					<div class="form-group col-md-8">
 						<div>
@@ -46,7 +45,7 @@
 						<input type="radio" th:field="*{sexo}" name="sexo" id="sexo" value="F" checked>
 						<label> Feminino </label>
 						<span th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class="text-danger">
-							<label> Unissex </label>
+							<label> Misto </label>
 							<input type="radio" th:field="*{sexo}" name="sexo" id="sexo" value="U">
 						</span>
 					</div>
@@ -54,36 +53,39 @@
 
 				<div class="row">
 					<div class="form-group col-md-8">
-						<label for="diaTreino" class="col-form-label">diaTreino</label>
+						<label for="diaTreino" class="col-form-label">Dia do(s) Treino(s)</label>
 						<input type="text" th:field="*{diaTreino}" class="form-control" id="diaTreino"
-							placeholder="diaTreino">
+							placeholder="Dia da semana">
 						<span th:if="${#fields.hasErrors('diaTreino')}" th:errors="*{diaTreino}" class="text-danger">
 						</span>
 					</div>
 				</div>
+				<div class="row text-danger"></span>
+				</div>
+
 				<div class="row">
 					<div class="form-group col-md-8">
-						<label for="horarioTreino" class="col-form-label">horarioTreino</label>
+						<label for="horarioTreino" class="col-form-label">Horário do Treino</label>
 						<input type="text" th:field="*{horarioTreino}" class="form-control" id="horarioTreino"
-							placeholder="horarioTreino">
+							placeholder="00:00 às 00:00">
 						<span th:if="${#fields.hasErrors('horarioTreino')}" th:errors="*{horarioTreino}"
 							class="text-danger"></span>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row text-danger"></div>
+
 				<div class="form-group col-md-8">
 					<input type="submit" class="btn btn-primary" value="Cadastrar Modalidade">
 					<input type="button" class="btn btn-primary" value="Consultar Modalidade" onclick="consulta();">
-						</div>
-			           </div>
-				 </form>
-			   </div>
-		     </div>
-			<h6 th:text="${message}" class="text-danger"></h6>
-		</div>
+				</div>
+		</form>
 	</div>
-		<footer th:replace="fragments/footer :: rodape">
-			<div>footer</div>
-		</footer>
+	</div>
+	  
+	</div>
+	<footer th:replace="fragments/footer :: rodape">
+		<div>footer</div>
+	</footer>
 </body>
+
 </html>

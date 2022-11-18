@@ -17,7 +17,6 @@
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
 
 </head>
 
@@ -47,7 +46,7 @@
 								<span th:if="${#fields.hasErrors('produtoId')}" th:errors="*{produtoId}"
 									class="textdanger"> </span>
 							</div>
-						</div>						
+						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
 								<label for="quantidade" class="col-form-label">Quantidade</label>
@@ -55,20 +54,23 @@
 									placeholder="Quantidade"> <span th:if="${#fields.hasErrors('quantidade')}"
 									th:errors="*{quantidade}" class="text-danger"></span>
 							</div>
-						</div>
 							<div class="form-group col-md-20">
 								<input type="submit" class="btn btn-primary" value="Cadastrar Pedido">
-								<a type="submit" class="btn btn-primary" th:href="@{/grupo4/pedidos}">Consultar Pedidos</a>
-						   </div>
-						 </form>
-					  </div>
-					</div>
+								<a type="submit" class="btn btn-primary" th:href="@{/grupo4/pedidos}"> Consultar
+									Pedidos</a>
+
+							</div>
+
+						</div>
+					</form>
 				</div>
+			</div>
+		</div>
 		<h6 th:text="${message}" class="text-danger"></h6>
-	    </div>
-	  </div>
+	</div>
 	<footer th:replace="fragments/footer :: rodape">
 		<div>footer</div>
 	</footer>
 </body>
+
 </html>
