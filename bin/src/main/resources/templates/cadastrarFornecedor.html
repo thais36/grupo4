@@ -15,8 +15,8 @@
 		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
 </head>
-
 <body>
 	<header th:replace="fragments/header :: menuSuperior">
 		<div>header</div>
@@ -32,16 +32,14 @@
 							<div class="form-group col-md-4">
 								<label for="cnpj" class="col-form-label">CNPJ</label>
 								<input type="text" th:field="*{cnpj}" class="form-control" id="cnpj" placeholder="CNPJ">
-								<span th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}" class="text-danger">
-								</span>
+								<span th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}" class="text-danger"></span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
 								<label for="razaoSocial" class="col-form-label">Razão Social</label>
 								<input type="text" th:field="*{razaoSocial}" class="form-control" id="razaoSocial" placeholder="Razão Social">
-								<span th:if="${#fields.hasErrors('razaoSocial')}" th:errors="*{razaoSocial}" class="text-danger">
-								</span>
+								<span th:if="${#fields.hasErrors('razaoSocial')}" th:errors="*{razaoSocial}" class="text-danger"></span>
 							</div>
 						</div>
 						<div class="row">
@@ -62,9 +60,8 @@
 						</div>
 						<div class="row">
 								<div class="form-group col-md-8">
-									<div>
 										<label>Categoria</label>
-									</div>
+										<br/>
 									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
 										id="flexRadioDefault1" value="Gestão">
 									<label> Gestão </label>
@@ -74,20 +71,24 @@
 									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
 										id="flexRadioDefault3" value="Outros" checked>
 									<label> Outros </label>
+								  </div>
 								</div>
+						<div class="row">
 						<div class="form-group col-md-8">
 							<input type="submit" class="btn btn-primary" value="Cadastrar Fornecedor">
 							<input type="button" class="btn btn-primary" value="Consultar Fornecedor"
 								onclick="consulta();">
+						  </div>
 						</div>
+					  </div>
 					</form>
 				</div>
 			</div>
 			<h6 th:text="${message}" class="text-danger"></h6>
 		</div>
+	 </div>
 		<footer th:replace="fragments/footer :: rodape">
 			<div>footer</div>
 		</footer>
 </body>
-
 </html>
