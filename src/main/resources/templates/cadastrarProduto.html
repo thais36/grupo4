@@ -19,10 +19,12 @@
 
 <body>
 	<header th:replace="fragments/header :: menuSuperior">
-		<div>header</div>
+		<div>
+			header
+		</div>
 	</header>
 	<div class="container my-5">
-		<br />
+		<br>
 		<h3>Cadastrar Produto</h3>
 		<div class="card">
 			<div class="card-body">
@@ -30,75 +32,56 @@
 					<form action="#" th:action="@{/grupo4/produtos}" th:object="${produto}" method="post">
 						<div class="row">
 							<div class="form-group col-md-8">
-								<label for="nome" class="col-form-label">Nome</label>
-								<input type="text" th:field="*{nome}" class="form-control" id="nome" placeholder="Nome">
-								<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger">
-								</span>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-md-8">
-								<label for="categoria" class="col-form-label">Categoria</label>
-								<input type="text" th:field="*{categoria}" class="form-control" id="categoria" placeholder="Categoria">
-								<span th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}" class="text-danger">
-								</span>
+								<label for="nome" class="col-form-label">Nome</label> <input type="text"
+									th:field="*{nome}" class="form-control" id="nome" placeholder="Nome">
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-4">
-								<label for="preco" class="col-form-label">Preço</label>
-								<input type="text" th:field="*{preco}" class="form-control" id="preco" placeholder="preco">
-								<span th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}" class="text-danger">
-								</span>
+								<label for="preco" class="col-form-label">Preço</label> <input type="text"
+									th:field="*{preco}" class="form-control" id="preco" placeholder="preco">
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
-								<label for="qntidadedeitens" class="col-form-label">Quantidade de Itens</label>
-								<input type="text" th:field="*{qntidadedeitens}" class="form-control" id="nome" placeholder="Quantidade de Itens">
-								<span th:if="${#fields.hasErrors('qntidadedeitens')}" th:errors="*{qntidadedeitens}" class="text-danger">
-								</span>
+								<label for="qntidadedeitens" class="col-form-label">Quantidade de Itens</label> <input
+									type="text" th:field="*{qntidadedeitens}" class="form-control" id="nome"
+									placeholder="Quantidade de Itens">
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
-								<label for="tamanho" class="col-form-label">Tamanho</label>
-								<input type="text" th:field="*{tamanho}" class="form-control" id="tamanho" placeholder="tamanho">
-								<span th:if="${#fields.hasErrors('tamanho')}" th:errors="*{tamanho}" class="text-danger">
-								</span>
+								<label for="tamanho" class="col-form-label">Tamanho</label> <input type="text"
+									th:field="*{tamanho}" class="form-control" id="tamanho" placeholder="tamanho">
 							</div>
-						</div>
-							</div>
-							<div class="row">
-							<div class="form-group col-md-8">
-								<label for="descricao" class="col-form-label">Descrição</label>
-								<input type="text" th:field="*{descricao}" class="form-control" id="descricao" placeholder="descricao">
-								<span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}" class="text-danger">
-								</span>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-md-8">
-								<label for="cor" class="col-form-label">Cor</label>
-								<input type="text" th:field="*{cor}" class="form-control" id="cor" placeholder="cor">
-								<span th:if="${#fields.hasErrors('cor')}" th:errors="*{cor}" class="text-danger">
-								</span>
-							</div>
-						</div>
-						</div>
-						<div class="form-group col-md-8">
-							<input type="submit" class="btn btn-primary" value="Cadastrar Produto">
-							<input type="button" class="btn btn-primary" value="Consultar Produto"
-								onclick="consulta();">
 						</div>
 					</form>
 				</div>
+				<div class="row">
+					<div class="form-group col-md-8">
+						<label for="descricao" class="col-form-label">Descrição</label> <input type="text"
+							th:field="*{descricao}" class="form-control" id="descricao" placeholder="descricao">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-8">
+						<label for="cor" class="col-form-label">Cor</label> <input type="text" th:field="*{cor}"
+							class="form-control" id="cor" placeholder="cor">
+					</div>
+				</div>
 			</div>
-			<h6 th:text="${message}" class="text-danger"></h6>
+			<div class="form-group col-md-8">
+				<input type="submit" class="btn btn-primary" value="Cadastrar Produto"> <input type="button"
+					class="btn btn-primary" value="Consultar Produto" onclick="consulta();">
+			</div>
 		</div>
-		<footer th:replace="fragments/footer :: rodape">
-			<div>footer</div>
-		</footer>
+	</div>
+	<h6 th:text="${message}" class="text-danger"></h6>
+	<footer th:replace="fragments/footer :: rodape">
+		<div>
+			footer
+		</div>
+	</footer>
 </body>
 
 </html>

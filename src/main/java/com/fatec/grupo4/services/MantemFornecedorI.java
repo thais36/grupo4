@@ -67,6 +67,7 @@ public class MantemFornecedorI implements MantemFornecedor {
 	@Override
 	public Optional<Fornecedor> atualiza(Fornecedor fornecedor) {
 		logger.info(">>>>>> 1.servico altera fornecedor chamado");
+		@SuppressWarnings("unused")
 		Optional<Fornecedor> umFornecedor = consultaPorId(fornecedor.getId());
 		Endereco endereco = obtemEndereco(fornecedor.getCep());
 		// if (umFornecedor.isPresent() & endereco != null) {
@@ -92,7 +93,7 @@ public class MantemFornecedorI implements MantemFornecedor {
 			logger.info(">>>>>> consulta CEP erro nao esperado ");
 			return null;
 		} catch (HttpClientErrorException e) {
-			logger.info(">>>>>> consulta CEP inválido erro HttpClientErrorException =>" + e.getMessage());
+			logger.info(">>>>>> consulta CEP invï¿½lido erro HttpClientErrorException =>" + e.getMessage());
 			return null;
 		}
 	}

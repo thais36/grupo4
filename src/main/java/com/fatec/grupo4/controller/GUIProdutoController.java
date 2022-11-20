@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fatec.grupo4.model.Fornecedor;
 import com.fatec.grupo4.model.Produto;
 import com.fatec.grupo4.services.MantemProduto;
 
+@SuppressWarnings("unused")
 @Controller
 @RequestMapping(path = "/grupo4")
+
 public class GUIProdutoController {
 	Logger logger = LogManager.getLogger(GUIProdutoController.class);
 	@Autowired
@@ -37,8 +40,8 @@ public class GUIProdutoController {
 	@GetMapping("/produto")
 	public ModelAndView retornaFormDeCadastroDe(Produto produto) {
 		ModelAndView mv = new ModelAndView("cadastrarProduto");
-		List<String> lista = Arrays.asList("Gestão", "Filiado", "Outros");
-		mv.addObject("lista", lista);
+		//List<String> lista = Arrays.asList("Gestão", "Filiado", "Outros");
+		//mv.addObject("lista", lista);
 		mv.addObject("Produto", produto);
 		return mv;
 	}
@@ -59,14 +62,14 @@ public class GUIProdutoController {
 	public ModelAndView excluirNoFormDeConsultaProduto(@PathVariable("id") Long id) {
 		servico.delete(id);
 		logger.info(">>>>>> 1. servico de exclusao chamado para o id => " + id);
-		ModelAndView modelAndView = new ModelAndView("redirect:/grupo4/produtos");
+		ModelAndView modelAndView = new ModelAndView("consultarProduto");
 		modelAndView.addObject("produtos", servico.consultaTodos());
 		return modelAndView;
 	}
 
 	@PostMapping("/produtos")
 	public ModelAndView save(@Valid Produto produto, BindingResult result) {
-		ModelAndView mv = new ModelAndView("consultarProduto");
+		ModelAndView mv = new ModelAndView("redirect:/grupo4/produtos");
 		if (result.hasErrors()) {
 			mv.setViewName("cadastrarProduto");
 		} else {
@@ -83,8 +86,8 @@ public class GUIProdutoController {
 		return mv;
 	}
 
-	@PostMapping("/produto/id/{id}")
-	public ModelAndView atualizarProduto(@PathVariable("id") Long id, @Valid Produto produto, BindingResult result) {
+	@PostMapping("/produtos/id/{id}")
+	public ModelAndView atualizaProduto(@PathVariable("id") Long id, @Valid Produto produto, BindingResult result) {
 		ModelAndView modelAndView = new ModelAndView("consultarProduto");
 		logger.info(">>>>>> servico para atualizacao de dados chamado para o id => " + id);
 		if (result.hasErrors()) {
@@ -92,9 +95,18 @@ public class GUIProdutoController {
 			produto.setId(id);
 			return new ModelAndView("redirect:/grupo4/produtos");
 		} else {
-		servico.atualiza(produto);
-		modelAndView.addObject("produtos", servico.consultaTodos());
+			servico.atualiza(produto);
+			modelAndView.addObject("produtos", servico.consultaTodos());
+			if (servico.save(produto).isPresent()) {
+				logger.info(">>>>>> controller chamou atualizar e consultar todos");
+				modelAndView.addObject("produtos", servico.consultaTodos());
+			} else {
+				logger.info(">>>>>> controller cadastrar com dados invalidos");
+				modelAndView.setViewName("redirect:/grupo4/produtos");
+				modelAndView.addObject("message", "Dados invalidos");
+			}
 		}
+		
 		return modelAndView;
 	}
 }

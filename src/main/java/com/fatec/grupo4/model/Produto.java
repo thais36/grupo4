@@ -12,26 +12,23 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotBlank(message = "Nome é requerido")
+	@NotBlank(message = "Nome Ã© requerido")
 	private String nome;
-	@NotBlank(message = "Nome é requerido")
-	private String categoria;
-	@NotBlank(message = "categoria é requerido")
+	@NotBlank(message = "preÃ§o Ã© requerido")
 	private String preco;
-	@NotBlank(message = "Preço é requerido")
+	@NotBlank(message = "Quantidade de itens Ã© requerido")
 	private String qntidadedeitens;
-	@NotBlank(message = "Quantidade de itens é requerido")
+	@NotBlank(message = "Tamanho Ã© requerido")
 	private String tamanho;
-	@NotBlank(message = "Tamanho é requerido")
+	@NotBlank(message = "Descricao Ã© requerida")
 	private String descricao;
-	@NotBlank(message = "Descrição é requerida")
+	@NotBlank(message = "Cor Ã© requerida")
 	private String cor;
-	@NotBlank(message = "Cor é requerido")
+	
 	
 
-	public Produto(String nome, String categoria, String preco, String qntidadedeitens, String tamanho, String descricao, String cor) {
+	public Produto(String nome, String preco, String qntidadedeitens, String tamanho, String descricao, String cor) {
 		this.nome = nome;
-		this.categoria = categoria;
 		this.preco = preco ;
 		this.qntidadedeitens = qntidadedeitens;
 		this.tamanho = tamanho;
@@ -56,14 +53,6 @@ public class Produto {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
 	}
 
 	public String getPreco() {
