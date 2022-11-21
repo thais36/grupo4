@@ -14,21 +14,24 @@ public class Produto {
 	private Long id;
 	@NotBlank(message = "Nome é requerido")
 	private String nome;
-	@NotBlank(message = "preço é requerido")
+	@NotBlank(message = "Nome é requerido")
+	private String categoria;
+	@NotBlank(message = "categoria é requerido")
 	private String preco;
-	@NotBlank(message = "Quantidade de itens é requerido")
+	@NotBlank(message = "Preço é requerido")
 	private String qntidadedeitens;
-	@NotBlank(message = "Tamanho é requerido")
+	@NotBlank(message = "Quantidade de itens é requerido")
 	private String tamanho;
-	@NotBlank(message = "Descricao é requerida")
+	@NotBlank(message = "Tamanho é requerido")
 	private String descricao;
-	@NotBlank(message = "Cor é requerida")
+	@NotBlank(message = "Descrição é requerida")
 	private String cor;
-	
+	@NotBlank(message = "Cor é requerido")
 	
 
-	public Produto(String nome, String preco, String qntidadedeitens, String tamanho, String descricao, String cor) {
+	public Produto(String nome, String categoria, String preco, String qntidadedeitens, String tamanho, String descricao, String cor) {
 		this.nome = nome;
+		this.categoria = categoria;
 		this.preco = preco ;
 		this.qntidadedeitens = qntidadedeitens;
 		this.tamanho = tamanho;
@@ -53,6 +56,14 @@ public class Produto {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 
 	public String getPreco() {
@@ -106,7 +117,7 @@ public class Produto {
 //		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 //		df.setLenient(false); //
 //		try {
-//			df.parse(data); // data válida (exemplo 30 fev - 31 nov)
+//			df.parse(data); // data vÃ¡lida (exemplo 30 fev - 31 nov)
 //			return true;
 //		} catch (ParseException ex) {
 //			return false;

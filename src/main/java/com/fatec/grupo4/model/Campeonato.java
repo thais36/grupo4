@@ -10,26 +10,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import org.hibernate.validator.constraints.br.CPF;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 @Entity
-public class Atleta {
+public class Campeonato {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@NotBlank(message = "Nome é requerido")
-	private String nome;
-	@Pattern(regexp = "^(0?[1-9]|[12][0-9]|3[01])[\\/-](0?[1-9]|1[012])[\\/-]\\d{4}$", message = "A data de nascimento deve estar no formato dd/MM/YYYY")
-	private String dataNascimento;
+	private String nome;	
+	private String dataCampeonato;
+	private String horaCampeonato;
 	private String dataCadastro;
-	@NotBlank(message = "O sexo é requerido.")
-	private String sexo;
-	@CPF(message = "CPF inválido.")
-	@Column(unique = true) // nao funciona com @Valid tem que tratar na camada de persistencia
-	private String cpf;
 	@NotBlank(message = "O CEP é obrigatório.")
 	private String cep;
 	private String endereco;
@@ -37,20 +31,18 @@ public class Atleta {
 	private String complemento;
 	@NotBlank(message = "A categoria é um atributo requerido.")
 	private String categoria;
-	
 
-	public Atleta(String nome, String dataNascimento, String sexo, String cpf, String cep, String complemento, String categoria) {
+	public Campeonato(String nome, String dataCampeonato, String horaCampeonatoo, String cep, String complemento, String categoria) {
 		this.nome = nome;
-		setDataNascimento(dataNascimento);
+		setHoraCampeonato(dataCampeonato);
+		setHoraCampeonato(horaCampeonato);
 		setDataCadastro(new DateTime());
-		this.sexo = sexo;
-		this.cpf = cpf;
 		this.cep = cep;
 		this.complemento = complemento;
 		this.categoria = categoria;
 	}
 
-	public Atleta() {
+	public Campeonato() {
 	}
 
 	public Long getId() {
@@ -77,34 +69,27 @@ public class Atleta {
 		this.dataCadastro = obtemDataAtual(dataAtual);
 	}
 
-	public String getDataNascimento() {
-		return dataNascimento;
+	public String getDataCampeonato() {
+		return dataCampeonato;
 	}
 
-	public void setDataNascimento(String dataNascimento) {
-		if (validaData(dataNascimento) == true) {
-			this.dataNascimento = dataNascimento;
+	public void setDataCampeonato(String dataCampeonato) {
+		if (validaData(dataCampeonato) == true) {
+			this.dataCampeonato= dataCampeonato;
 		} else {
 			throw new IllegalArgumentException("Data invalida");
 		}
 	}
 
-	public String getSexo() {
-		return sexo;
+	public String getHoraCampeonato() {
+		return horaCampeonato;
+	}
+	
+	public void setHoraCampeonato(String horaCampeonato) {
+		this.horaCampeonato = horaCampeonato;
 	}
 
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
+	
 	public String getCep() {
 		return cep;
 	}
@@ -154,7 +139,7 @@ public class Atleta {
 	}
 // equals e tostring omitidos
 
-	public Object getCategoria() {
+	public String getCategoria() {
 		// TODO Auto-generated method stub
 		return categoria;
 	}

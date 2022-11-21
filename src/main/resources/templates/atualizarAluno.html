@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Atualizar aluno</title>
+	<title>Atualizar Usuários</title>
 	<script type="text/javascript">
 		function consulta() {
 			window.open("/grupo4/alunos");
@@ -24,7 +24,7 @@
 <body>
 	<div class="container my-5">
 		<br />
-		<h3>Atualizar Aluno</h3>
+		<h3>Atualizar Usuários</h3>
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
@@ -48,7 +48,7 @@
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
-								<label for="dataNascimento" class="col-form-label">Data Nascimento</label>
+								<label for="dataNascimento" class="col-form-label">Data de Nascimento</label>
 								<input type="text" th:field="*{dataNascimento}" class="form-control" id="dataNascimento"
 									placeholder="DD/MM/AAAA">
 								<span th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}"
@@ -87,7 +87,7 @@
 							<div class="form-group col-md-8">
 								<label for="complemento" class="col-form-label">Número/Complemento</label>
 								<input type="text" th:field="*{complemento}" class="form-control" id="complemento"
-									placeholder="complemento">
+									placeholder="Número/Complemento">
 								<span th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"
 									class="text-danger"></span>
 							</div>
@@ -109,8 +109,8 @@
 								</div>
 
 								<div class="form-group col-md-8">
-									<input type="submit" class="btn btn-primary" value="Atualizar aluno">
-									<input type="button" class="btn btn-primary" value="Consultar aluno"
+									<input type="submit" class="btn btn-primary" value="Atualizar">
+									<input type="button" class="btn btn-primary" value="Consultar"
 										onclick="consulta();">
 								</div>
 							</div>

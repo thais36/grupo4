@@ -4,10 +4,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Inscrição</title>
+	<title>Cadastrar Evento</title>
 	<script type="text/javascript">
 		function consulta() {
-			window.open("/grupo4/alunos");
+			window.open("/grupo4/eventos");
 		}
 	</script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,63 +16,49 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
+		<script type="text/javascript" th:src="@{/js/makeDate.js}"></script>
 </head>
-
 <body>
 	<header th:replace="fragments/header :: menuSuperior">
 		<div>header</div>
 	</header>
 	<div class="container my-5">
 		<br />
-		<h3>Cadastrar Usuário</h3>
+		<h3>Cadastrar Evento</h3>
 		<div class="card">
 			<div class="card-body">
 				<div class="col-md-8">
-					<form action="#" th:action="@{/grupo4/alunos}" th:object="${aluno}" method="post">
-						<div class="row">
-							<div class="form-group col-md-4">
-								<label for="cpf" class="col-form-label">CPF</label>
-								<input type="text" th:field="*{cpf}" class="form-control" id="cpf" placeholder="CPF">
-								<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="text-danger"></span>
-							</div>
-						</div>
+					<form action="#" th:action="@{/grupo4/eventos}" th:object="${evento}" method="post">
+						
 						<div class="row">
 							<div class="form-group col-md-8">
 								<label for="nome" class="col-form-label">Nome</label>
-								<input type="text" th:field="*{nome}" class="form-control" id="nome" placeholder="Nome">
-								<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger">
+								<input type="text" th:field="*{nome}" class="form-control" id="nome" placeholder="">
+								<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="dataEvento" class="col-form-label">Data</label>
+								<input type="text" th:field="*{dataEvento}" class="form-control" id="dataEvento"
+									placeholder="  /  /    ">
+								<span th:if="${#fields.hasErrors('dataEvento')}" th:errors="*{dataEvento}" class="text-danger">
 								</span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
-								<label for="dataNascimento" class="col-form-label">Data de Nascimento</label>
-								<input type="text" th:field="*{dataNascimento}" class="form-control" id="dataNascimento"
-									placeholder="DD/MM/AAAA">
-								<span th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}"
-									class="text-danger">
-								</span>
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-md-8">
-								<div>
-									<label>Sexo</label>
-								</div>
-								<input type="radio" th:field="*{sexo}" name="flexRadioDefault" id="flexRadioDefault1"
-									value="M">
-								<label> Masculino </label>
-								<input type="radio" th:field="*{sexo}" name="flexRadioDefault" id="flexRadioDefault2"
-									value="F" checked>
-								<label> Feminino </label>
-								<span th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class="text-danger">
-								</span>
+								<label for="horaEvento" class="col-form-label">Horário</label>
+								<input type="text" th:field="*{horaEvento}" class="form-control" id="00:00"
+									placeholder="  :  ">
+								<span th:if="${#fields.hasErrors('horaEvento')}" th:errors="*{horaEvento}"
+									class="text-danger"></span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
 								<label for="cep" class="col-form-label">CEP</label>
-								<input type="text" th:field="*{cep}" class="form-control" id="cep" placeholder="CEP">
+								<input type="text" th:field="*{cep}" class="form-control" id="cep" maxlength="8" placeholder="">
 								<span th:if="${#fields.hasErrors('cep')}" th:errors="*{cep}" class="text-danger"></span>
 							</div>
 						</div>
@@ -80,38 +66,38 @@
 							<div class="form-group col-md-8">
 								<label for="complemento" class="col-form-label">Número/Complemento</label>
 								<input type="text" th:field="*{complemento}" class="form-control" id="complemento"
-									placeholder="Número/Complemento">
+									placeholder="">
 								<span th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"
 									class="text-danger"></span>
 							</div>
-
-
+						</div>
 							<div class="row">
 								<div class="form-group col-md-8">
-									<div>
 										<label>Categoria</label>
-									</div>
+									<br/>
 									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
-										id="flexRadioDefault1" value="Gestão">
-									<label> Gestão </label>
+										id="flexRadioDefault1" value="Show">
+									<label> Show </label>
 									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
-										id="flexRadioDefault2" value="Filiado" checked>
-									<label> Filiado</label>
+										id="flexRadioDefault2" value="Festa" checked>
+									<label> Festa</label>
+									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
+										id="flexRadioDefault2" value="Palestra" checked>
+									<label> Palestra</label>
 									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
 										id="flexRadioDefault3" value="Outros" checked>
 									<label> Outros </label>
-								</div>
-
-							
+								 </div>
+						 	</div>
 							<div class="form-group col-md-8">
-								<input type="submit" class="btn btn-primary" value="Cadastrar">
-								<input type="button" class="btn btn-primary" value="Consultar"
+								<input type="submit" class="btn btn-primary" value="Cadastrar Evento">
+								<input type="button" class="btn btn-primary" value="Consultar Evento"
 									onclick="consulta();">
 							</div>
-							</div>
+					    </div>
 					</form>
 				</div>
-			</div>
+			  </div>
 			</div>
 			<h6 th:text="${message}" class="text-danger"></h6>
 		</div>
@@ -119,5 +105,4 @@
 			<div>footer</div>
 		</footer>
 </body>
-
 </html>
