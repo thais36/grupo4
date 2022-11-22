@@ -38,9 +38,9 @@
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
-								<label for="produtoId" class="col-form-label">Código Produto</label>
+								<label for="produtoId" class="col-form-label">Código do Produto</label>
 								<input type="text" th:field="*{produtoId}" class="form-control" id="produtoId"
-									placeholder="Código Produto">
+									placeholder="Código do Produto">
 								<span th:if="${#fields.hasErrors('produtoId')}" th:errors="*{produtoId}"
 									class="textdanger"> </span>
 							</div>
@@ -70,4 +70,3 @@
 		<div>footer</div>
 	</footer>
 </body>
-

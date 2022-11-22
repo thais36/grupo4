@@ -17,7 +17,6 @@
 		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
 </head>
-
 <body>
 	<header th:replace="fragments/header :: menuSuperior">
 		<div>header</div>
@@ -33,16 +32,14 @@
 							<div class="form-group col-md-4">
 								<label for="cpf" class="col-form-label">CPF</label>
 								<input type="text" th:field="*{cpf}" class="form-control" id="cpf" placeholder="CPF">
-								<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="text-danger">
-								</span>
+								<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="text-danger"></span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
 								<label for="nome" class="col-form-label">Nome</label>
 								<input type="text" th:field="*{nome}" class="form-control" id="nome" placeholder="Nome">
-								<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger">
-								</span>
+								<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
 							</div>
 						</div>
 						<div class="row">
@@ -51,15 +48,13 @@
 								<input type="text" th:field="*{dataNascimento}" class="form-control" id="dataNascimento"
 									placeholder="DD/MM/AAAA">
 								<span th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}"
-									class="text-danger">
-								</span>
+									class="text-danger"></span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
-								<div>
 									<label>Sexo</label>
-								</div>
+									<br/>
 								<input type="radio" th:field="*{sexo}" name="flexRadioDefault" id="flexRadioDefault1"
 									value="M">
 								<label> Masculino </label>
@@ -86,14 +81,10 @@
 									class="text-danger"></span>
 							</div>
 						</div>
-						
-						
-						
 							<div class="row">
 								<div class="form-group col-md-8">
-									<div>
 										<label>Categoria</label>
-									</div>
+										<br/>
 									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
 										id="flexRadioDefault1" value="Gestão">
 									<label> Gestão </label>
@@ -104,23 +95,17 @@
 										id="flexRadioDefault3" value="Outros" checked>
 									<label> Outros </label>
 								</div>
-							
-								<div class="row">
-							<div class="form-group col-md-8">
-								<label for="modalidade" class="col-form-label">Modalidade Esportiva</label>
-								<input type="text" th:field="*{modalidade}" class="form-control" id="modalidade" placeholder="Informe a modalidade esportiva praticada">
-								<span th:if="${#fields.hasErrors('modalidade')}" th:errors="*{modalidade}" class="text-danger">
-								</span>
-							</div>
-						</div>
-							
+							  </div>	
+							  <div class="row">	
 							<div class="form-group col-md-8">
 								<input type="submit" class="btn btn-primary" value="Cadastrar Atleta">
 								<input type="button" class="btn btn-primary" value="Consultar Atleta"
 									onclick="consulta();">
 							</div>
+					    </div>
 					</form>
 				</div>
+			  </div>
 			</div>
 			<h6 th:text="${message}" class="text-danger"></h6>
 		</div>
@@ -128,5 +113,4 @@
 			<div>footer</div>
 		</footer>
 </body>
-
 </html>

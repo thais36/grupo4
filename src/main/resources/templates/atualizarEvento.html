@@ -51,8 +51,8 @@
 						<div class="row">
 							<div class="form-group col-md-8">
 								<label for="horaEvento" class="col-form-label">Horário</label>
-								<input type="text" th:field="*{horaEvento}" class="form-control" id="00:00"
-									placeholder="  :  ">
+								<input type="text" th:field="*{horaEvento}" class="form-control" id="00:00 às 00:00"
+									placeholder="00:00 às 00:00">
 								<span th:if="${#fields.hasErrors('horaEvento')}" th:errors="*{horaEvento}"
 									class="text-danger"></span>
 							</div>

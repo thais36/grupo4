@@ -50,7 +50,7 @@
 							<div class="form-group col-md-8">
 								<label for="horaCampeonato" class="col-form-label">Horário</label>
 								<input type="text" th:field="*{horaCampeonato}" class="form-control" id="00:00"
-									placeholder="  :  ">
+									placeholder="00:00 às 00:00">
 								<span th:if="${#fields.hasErrors('horaCampeonato')}" th:errors="*{horaCampeonato}"
 									class="text-danger"></span>
 							</div>
@@ -77,7 +77,7 @@
 									<br/>
 									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
 										id="flexRadioDefault1" value="InterFatecs">
-									<label> Inter-FATEC'S </label>
+									<label> Inter-FATEC's </label>
 									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
 										id="flexRadioDefault2" value="FatecZL" checked>
 									<label> FATEC ZONA LESTE</label>

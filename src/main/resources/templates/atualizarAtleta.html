@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
 		integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
+		<script type="text/javascript" th:src="@{/js/makeDate.js}"></script>
 </head>
 <header th:replace="fragments/header :: menuSuperior">
 	<div>header</div>
@@ -33,7 +34,7 @@
 						<div class="row">
 							<div class="form-group col-md-4">
 								<label for="cpf" class="col-form-label">CPF</label> <input type="text" th:field="*{cpf}"
-									class="form-control" id="cpf" placeholder="cpf">
+									class="form-control" id="cpf" maxlength="11" placeholder="cpf">
 								<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="text-danger">
 								</span>
 							</div>
@@ -50,7 +51,7 @@
 							<div class="form-group col-md-8">
 								<label for="dataNascimento" class="col-form-label">Data Nascimento</label>
 								<input type="text" th:field="*{dataNascimento}" class="form-control" id="dataNascimento"
-									placeholder="DD/MM/AAAA">
+									maxlength="10" onkeyup="makeDate()" placeholder="DD/MM/AAAA">
 								<span th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}"
 									class="text-danger">
 								</span>
@@ -58,9 +59,8 @@
 						</div>
 						<div class="row">
 							<div class="form-group col-md-8">
-								<div>
 									<label>Sexo</label>
-								</div>
+								<br/>
 								<input type="radio" th:field="*{sexo}" name="flexRadioDefault" id="flexRadioDefault1"
 									value="M">
 								<label> Masculino </label>
@@ -74,9 +74,11 @@
 						<div class="row">
 							<div class="form-group col-md-8">
 								<label for="cep" class="col-form-label">CEP</label>
-								<input type="text" th:field="*{cep}" class="form-control" id="cep" placeholder="CEP">
+								<input type="text" th:field="*{cep}" class="form-control" id="cep" maxlength="8" placeholder="CEP">
 								<span th:if="${#fields.hasErrors('cep')}" th:errors="*{cep}" class="text-danger"></span>
 							</div>
+						</div>
+						    <div class="row">
 							<div class="form-group col-md-8">
 								<label for="endereco" class="col-form-label">Endereço</label>
 								<input type="text" th:field="*{endereco}" class="form-control" id="endereco"
@@ -84,6 +86,8 @@
 								<span th:if="${#fields.hasErrors('endereco')}" th:errors="*{endereco}"
 									class="text-danger"></span>
 							</div>
+							</div>
+							<div class="row">
 							<div class="form-group col-md-8">
 								<label for="complemento" class="col-form-label">Número/Complemento</label>
 								<input type="text" th:field="*{complemento}" class="form-control" id="complemento"
@@ -91,12 +95,11 @@
 								<span th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"
 									class="text-danger"></span>
 							</div>
+							</div>
 							<div class="row">
 								<div class="form-group col-md-8">
-								
-									<div>
 										<label>Categoria</label>
-									</div>
+									<br/>
 									<input type="radio" th:field="*{categoria}" name="flexRadioDefault"
 										id="flexRadioDefault1" value="Gestão">
 									<label> Gestão </label>
@@ -107,11 +110,13 @@
 										id="flexRadioDefault3" value="Outros" checked>
 									<label> Outros </label>
 								</div>
-								
+								</div>
+								<div class="row">
 								<div class="form-group col-md-8">
 									<input type="submit" class="btn btn-primary" value="Atualizar Atleta">
 									<input type="button" class="btn btn-primary" value="Consultar Atleta"
 										onclick="consulta();">
+								  </div>
 								</div>
 							</div>
 					</form>
@@ -120,6 +125,8 @@
 			<h6 th:text="${message}" class="text-danger"></h6>
 		</div>
 	</div>
+	<footer th:replace="fragments/footer :: rodape">
+			<div>footer</div>
+		</footer>
 </body>
-
 </html>

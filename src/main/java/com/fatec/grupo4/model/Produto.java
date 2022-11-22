@@ -12,21 +12,21 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotBlank(message = "Nome √© requerido")
+	@NotBlank(message = "Nome È requerido")
 	private String nome;
-	@NotBlank(message = "Nome √© requerido")
+	@NotBlank(message = "Nome È requerido")
 	private String categoria;
-	@NotBlank(message = "categoria √© requerido")
+	@NotBlank(message = "categoria È requerido")
 	private String preco;
-	@NotBlank(message = "Pre√ßo √© requerido")
+	@NotBlank(message = "PreÁo È requerido")
 	private String qntidadedeitens;
-	@NotBlank(message = "Quantidade de itens √© requerido")
+	@NotBlank(message = "Quantidade de itens È requerido")
 	private String tamanho;
-	@NotBlank(message = "Tamanho √© requerido")
+	@NotBlank(message = "Tamanho È requerido")
 	private String descricao;
-	@NotBlank(message = "Descri√ß√£o √© requerida")
+	@NotBlank(message = "DescriÁ„o È requerida")
 	private String cor;
-	@NotBlank(message = "Cor √© requerido")
+	@NotBlank(message = "Cor È requerido")
 	
 
 	public Produto(String nome, String categoria, String preco, String qntidadedeitens, String tamanho, String descricao, String cor) {
@@ -117,7 +117,7 @@ public class Produto {
 //		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 //		df.setLenient(false); //
 //		try {
-//			df.parse(data); // data v√É¬°lida (exemplo 30 fev - 31 nov)
+//			df.parse(data); // data v√°lida (exemplo 30 fev - 31 nov)
 //			return true;
 //		} catch (ParseException ex) {
 //			return false;

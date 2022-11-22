@@ -37,7 +37,6 @@ public class Atleta {
 	private String complemento;
 	@NotBlank(message = "A categoria é um atributo requerido.")
 	private String categoria;
-	
 
 	public Atleta(String nome, String dataNascimento, String sexo, String cpf, String cep, String complemento, String categoria) {
 		this.nome = nome;
