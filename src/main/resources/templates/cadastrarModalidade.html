@@ -7,7 +7,7 @@
 	<title>Cadastrar Modalidades Esportivas</title>
 	<script type="text/javascript">
 		function consulta() {
-			window.open("/grupox/modalidades");
+			window.open("/grupo4/modalidades");
 		}
 	</script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,20 +22,16 @@
 		<div>header</div>
 	</header>
 	<div class="container my-5">
-		<br />
-		<h3>Cadastrar Modalidades Esportivas</h3>
 		<div class="card">
 		<div class="card-body">
 		<div class="col-md-8">
-<<<<<<< HEAD
 		<form action="#" th:action="@{/grupo4/modalidades}" th:object="${modalidade}" method="post">
-=======
-		<form action="#" th:action="@{/grupox/modalidades}" th:object="${modalidade}" method="post">
->>>>>>> 8665ad5ac0993577121f9251731ff3109444e152
 			<div class="row">
 				<div class="form-group col-md-8">
-					<label for="nome" class="col-form-label">Nome da Modalidade</label>
-					<input type="text" th:field="*{nome}" class="form-control" id="nome" name="nome" placeholder="Nome">
+				<b><label>Dados Gerais</label></b>
+								<br/>
+					<label for="nome" class="col-form-label">Nome da Modalidade Esportiva</label>
+					<input type="text" th:field="*{nome}" class="form-control" id="nome" name="nome" placeholder="Modalidade">
 					<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger">
 					</span>
 				</div>
@@ -58,22 +54,18 @@
 
 				<div class="row">
 					<div class="form-group col-md-8">
-<<<<<<< HEAD
-						<label for="diaTreino" class="col-form-label">Dia(s) do(s) Treino(s)</label>
-=======
-						<label for="diaTreino" class="col-form-label">diaTreino</label>
->>>>>>> 8665ad5ac0993577121f9251731ff3109444e152
+						<label for="diaTreino" class="col-form-label">Dia do Treino</label>
 						<input type="text" th:field="*{diaTreino}" class="form-control" id="diaTreino"
-							placeholder="diaTreino">
+							placeholder="Dia da semana; ex: Segunda e Sexta">
 						<span th:if="${#fields.hasErrors('diaTreino')}" th:errors="*{diaTreino}" class="text-danger">
 						</span>
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group col-md-8">
-						<label for="horarioTreino" class="col-form-label">horarioTreino</label>
+						<label for="horarioTreino" class="col-form-label">Horário do Treino</label>
 						<input type="text" th:field="*{horarioTreino}" class="form-control" id="horarioTreino"
-							placeholder="horarioTreino">
+							placeholder="00:00 - 00:00">
 						<span th:if="${#fields.hasErrors('horarioTreino')}" th:errors="*{horarioTreino}"
 							class="text-danger"></span>
 					</div>
